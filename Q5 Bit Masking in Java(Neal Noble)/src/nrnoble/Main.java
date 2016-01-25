@@ -10,7 +10,6 @@ public class Main
 
 	public static void main(String[] args)
 	{
-		// TODO Auto-generated method stub
 		
 		BooleanArray bitArray = new BooleanArray();
 		System.out.println("Starting Bit Tests");

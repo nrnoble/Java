@@ -37,7 +37,10 @@ public class Discarded
 	    }
 	}
 	
-
+	/**
+	 * Converts a int to a bin string by checking each bit
+	 * @param _bin
+	 */
 //	public static void displayIntAsBinaryx (int _bin)
 //	{
 //		String binString = "";

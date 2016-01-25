@@ -1,0 +1,49 @@
+package Poker;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class KeyPress
+{
+	
+	public static int getKey()
+	{
+		InputStreamReader reader = new InputStreamReader(System.in); 
+		boolean  exit = false;
+		int keyPress = 0;
+		while(!exit) 
+		{ 
+			try
+			{
+				if ( reader.ready()) 
+				{ 
+					try
+					{
+						keyPress = reader.read();
+						exit = true;
+					} 
+					catch (IOException e)
+					{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			} catch (IOException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		 
+			// edit, lets not hog any cpu time 
+			try 
+			{ 
+				Thread.sleep(50); 
+			} 
+			catch (InterruptedException ex) 
+			{ 
+				// can't do much about it can we? Ignoring  
+			} 
+		}
+		return keyPress;
+	}
+}

@@ -1,0 +1,49 @@
+package nrnoble;
+
+public class Main
+{
+
+	public Main()
+	{
+		// Nothing to initialize.
+	}
+
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+		
+		BooleanArray bitArray = new BooleanArray();
+		System.out.println("Starting....");
+		
+		
+		bitArray.setTrue(0);
+		bitArray.setTrue(5);
+		bitArray.setTrue(6);
+		bitArray.setTrue(8);
+		for (int index = 0; index <=8; index++ )
+		if (bitArray.isTrue(index))
+		{
+			System.out.println("Bit "+ index + " IsTrue");
+		}
+		System.out.println("---------- FEDCBA9876543210");
+		System.out.println("Show Bits: " + bitArray.bitString());
+		System.out.println();
+		
+		
+		bitArray.setFalse(0);
+		bitArray.setFalse(5);
+		bitArray.setFalse(6);
+		bitArray.setFalse(8);
+		
+		for (int index = 0; index <=16; index++ )
+		if (bitArray.isTrue(index))
+		{
+			System.out.println("Bit " + index + " IsTrue");
+		}
+		System.out.println("---------- FEDCBA9876543210");
+		System.out.println("Show Bits: " + bitArray.bitString());
+		
+
+	}
+
+}

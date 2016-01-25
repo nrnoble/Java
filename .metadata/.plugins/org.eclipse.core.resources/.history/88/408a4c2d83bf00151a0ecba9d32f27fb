@@ -1,0 +1,75 @@
+package Poker;
+
+//12345678901234567890123456789012345678901234567890123456789012345678901234567890
+/*1. Create a class called PlayingCard that stores some basic features of playing 
+   cards. Your class should have the following:
+•	Fields: color, width, height
+•	Constructors: a parameterized constructor (no default constructor allowed)
+•	Getters and setters for each field
+•	An appropriate toString() method
+*/
+
+public class PlayingCard 
+{
+	
+	//Fields: color, width, height
+	
+    private  int color;  
+    private  int width; 
+    private  int height;
+    public CardVisibility visibility;
+    
+    public PlayingCard (int _color, int _width, int _height)
+    {
+    	this.color 	= _color;
+    	this.width 	= _width;
+    	this.height = _height;
+    	this.visibility = CardVisibility.FACE_DOWN
+    	
+    }
+    
+    public int getColor()
+    {
+    	return this.color;
+    }
+    
+    
+    public int getWidth()
+    {
+    	return this.width;
+    }
+
+    
+    public int getHeight()
+    {
+    	return this.height;
+    }
+    
+    
+    public void setColor(int _color)
+    {
+    	 this.color = _color; 
+    }
+    
+    
+    public void setWidth(int _width)
+    {
+    	this.width = _width;
+    }
+
+    
+    public void setHeight(int _height)
+    {
+    	this.height = _height;
+    }
+
+    
+    public String toString()
+    {
+    	String str = "height: " + this.height + "\n\r" +
+    				 "width: " + this.width;
+    	return str;
+    }
+
+}
+

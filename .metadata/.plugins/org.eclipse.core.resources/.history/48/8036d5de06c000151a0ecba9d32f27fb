@@ -1,0 +1,152 @@
+package Poker;
+//import java.util.ArrayList;
+//import java.util.List;
+//import java.util.Scanner;
+//import java.awt.*;
+//import java.awt.event.*;
+
+public class BlackjackGame extends CardGame
+{
+
+	private CardDeck blackjackDeck;
+
+	
+	
+	public BlackjackGame(String _nameOfGame, String _welcomeMessage)
+	{
+		super(_nameOfGame, _welcomeMessage);
+		blackjackDeck = new CardDeck();
+		//currentCardIndex = 0;
+	}
+
+	@Override
+	public void shuffle()
+	{
+		blackjackDeck.shuffle();
+
+	}
+
+	public PokerCard cardDeal(CardVisibility _visibility)
+	{		
+		    PokerCard card = this.blackjackDeck.getNextCard();
+		    card.visibility = _visibility;
+			return card;
+	}
+
+	@Override
+	public void playRound()
+	{
+		
+		//initialize deck and shuffle
+		this.shuffle();
+		this.blackjackDeck.reset();
+		PokerHand dealerHand = new PokerHand("Dealer's");
+		PokerHand playerHand = new PokerHand("Your");
+		
+		// Add two cards to each hand
+		// Alternate cards dealt
+		playerHand.addCard(this.cardDeal(CardVisibility.EVERYONE));
+		dealerHand.addCard(this.cardDeal(CardVisibility.FACE_DOWN));
+		playerHand.addCard(this.cardDeal(CardVisibility.EVERYONE));
+		dealerHand.addCard(this.cardDeal(CardVisibility.FACE_DOWN));
+
+		// display player hand
+		playerHand.displayCards();
+		playerHand.displayHandValue();
+		System.out.println();
+
+		// display dealer hand. Cards should be face down
+		dealerHand.displayCards();
+		System.out.println();
+	
+        char keyPress = KeyPress.myGetKeyHack(Constants.HIT_ME, 'y');
+        
+        while (keyPress == 'y')
+        {
+        	playerHand.addCard(this.cardDeal(CardVisibility.EVERYONE));
+    		playerHand.displayCards();
+    		playerHand.displayHandValue();
+    		
+    		if (playerHand.getHandValue() > Constants.TwentyOne)
+    		{
+    			System.out.println(Constants.YOUR_HAND_IS_A_BUST);
+    			return; // exit round
+    		}
+    		
+    		if (playerHand.getHandValue() == Constants.TwentyOne)
+    		{
+    			System.out.println(Constants.YOU_HAVE_21);
+    			System.out.println();
+    			break; //exit while loop with a score of 21.
+    		}	
+    		
+    		// Ask player if they want another card
+          	keyPress = KeyPress.myGetKeyHack(Constants.HIT_ME, 'y');
+
+        }
+        
+        dealerHand.displayCards(CardVisibility.EVERYONE);
+        dealerHand.displayHandValue();
+        
+        // Check to see if the dealer's first two cards beats the player.
+        if (playerHand.handValue < dealerHand.handValue)
+        {
+        	
+        	System.out.println(Constants.DEALER_WINS);
+            return; // exit round
+        }
+        
+        System.out.println();
+        
+        // continue to add cards to dealers hand until the dealer beats player score
+        // or scores 21.
+        while ((playerHand.handValue >= dealerHand.handValue) && (dealerHand.handValue < Constants.TwentyOne))
+        {
+        	dealerHand.addCard(this.cardDeal(CardVisibility.EVERYONE));
+            dealerHand.displayCards();
+            dealerHand.displayHandValue();
+            System.out.println();
+        }
+        
+        //Check final results
+        if (dealerHand.handValue > Constants.TwentyOne)
+        {
+        	System.out.println(Constants.DEALER_BUSTED);
+        	return; // exit round
+        }
+        
+        if (dealerHand.handValue > playerHand.handValue)
+        {
+        	System.out.println(Constants.DEALER_BEATS_PLAYER_SCORE);
+        	return; // exit round
+        }
+        
+        // The only other possible result is that both player and dealer have 21.
+        if (dealerHand.handValue == Constants.TwentyOne)
+        {
+        	System.out.println(Constants.DRAW);
+        	return; // exit round
+        }
+        
+		System.out.println();
+		System.out.println("Finished");
+		
+		
+
+	}
+
+	@Override
+	public void dealCards(int _numberOfCards)
+	{
+	
+		
+	}
+
+	@Override
+	public PokerCard cardDeal()
+	{
+		
+		return null;
+	}
+
+}

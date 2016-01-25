@@ -1,0 +1,19 @@
+1453635236943	Rename local variable 'possibleSets'
+1453636551595	Rename local variable '_bits'
+1453636786503	Rename local variable '_sets'
+1453636795526	Rename local variable '_numOfbits'
+1453637353337	Rename method 'isIntTrue'
+1453642193842	Rename local variable 'set'
+1453642232886	Rename local variable '_numOfSets'
+1453642281002	Rename local variable 'set'
+1453642312752	Rename local variable 'ballsInSet'
+1453642387611	Rename method 'getSet'
+1453642489356	Rename method 'displayAsBinary'
+1453642781395	Rename local variable 'x'
+1453642859466	Rename local variable 'x'
+1453643809486	Rename local variable 'result'
+1453643854057	Rename local variable 'index'
+1453644040801	Rename local variable '_num'
+1453647337296	Delete element
+1453647343196	Delete element
+1453647348279	Delete element

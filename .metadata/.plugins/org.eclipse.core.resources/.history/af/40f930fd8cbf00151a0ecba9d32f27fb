@@ -1,0 +1,6 @@
+package Poker;
+
+public enum CardVisibility
+{
+	EVERYONE, FACE_DOWN, HAND_VISIBLITY
+}

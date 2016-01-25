@@ -1,0 +1,22 @@
+// Create an abstract class, called "CardGame", that stores fields and methods that are shared among most card games. The class should include:
+//
+// Fields:
+// name: the name of the game
+// welcomeMessage: a message that introduces the game
+// A single parameterized constructor that assigns your fields.
+// Three abstract methods
+// public abstract void shuffle()
+// This method will shuffle the deck of cards being used in the game
+// You will need to use the Random class to generate random integers here
+// public abstract Card deal()
+// Deals a single card from the deck to the user (notice the return type)
+// public abstract void playRound()
+// Plays a single hand in the game
+// With Blackjack this is a single match between the player and dealer
+// Create a child class of the "CardGame" class called "BlackjackGame." 
+
+
+public class CardGame
+{
+
+}

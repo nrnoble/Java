@@ -1,0 +1,52 @@
+package Poker;
+
+public class PokerHand extends Hand
+{
+
+	public PokerHand(String _playerName)
+	{
+		super(_playerName);
+	}
+	
+	@Override
+	protected void calculateHandValue()
+	{
+
+	}
+
+	@Override
+	public void removeCard(PokerCard card)
+	{
+		
+		
+	}
+
+	@Override
+	protected void displayCards()
+	{
+		
+		displayCards(CardVisibility.CURRENT_VISIBLITY);
+
+	}
+	
+	protected void displayCards(CardVisibility _visiablity)
+	{
+		for (PokerCard card: this.cards)
+		{
+			if (_visiablity == CardVisibility.EVERYONE)
+			{
+				card.visibility = CardVisibility.EVERYONE;
+			}
+			
+			System.out.println(this.playerName + " " + card.toString());
+	}
+	
+
+	@Override
+	protected void displayHandValue()
+	{
+		System.out.println(this.playerName + " Total: " + this.getHandValue());
+		
+	}
+	
+}

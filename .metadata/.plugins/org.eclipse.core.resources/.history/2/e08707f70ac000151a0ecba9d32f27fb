@@ -1,0 +1,157 @@
+package Poker;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
+
+import edu.greenriver.it.cards.BlackJackCard;
+import edu.greenriver.it.cards.Rank;
+import edu.greenriver.it.cards.Suit;
+
+/**
+ * This simulates a deck of cards
+ * @author Neal Noble
+ *
+ */
+public class CardDeck implements Iterable<BlackJackCard>
+{
+	private List <BlackJackCard> deck = new ArrayList<BlackJackCard>();
+	private Random rand = new Random();
+	private List <BlackJackCard> unshuffledDeck;
+	private int topCardIndex;
+	
+	// constructor. Creates a deck of unshuffled cards
+	public CardDeck()
+	{	
+		this.deck = createCardDeck();
+		this.unshuffledDeck = createCardDeck();
+		topCardIndex = 0;
+	}
+	
+	//create an unshuffled deck of 52 cards
+	private List<BlackJackCard> createCardDeck()
+	{
+		List <BlackJackCard> newDeck = new ArrayList<BlackJackCard>();
+		for (Suit suit : Suit.values())
+			for (Rank rank : Rank.values())
+				newDeck.add(new BlackJackCard(suit,rank));
+		return newDeck;
+	}
+	
+	// shuffle deck once
+	public void shuffle()
+	{
+		for (int pos1 = 0; pos1 < Constants.DECK_SIZE; pos1++)
+		{
+			int randomPosition = rand.nextInt(Constants.DECK_SIZE);
+			
+			this.swap(pos1,randomPosition);
+		}
+		
+		
+		boolean status = verify();
+		if (status == false)
+		{
+			shuffle();
+		}
+
+	}
+	
+	// verify that all cards are in a different position
+	// when compared to original. Compare rank first; 1 in 13 
+	// chance of being the same rank. If same rank, then compare 
+	// suit. return false if both rank & suit are true.
+	// This works well enough, but really is a hack.
+	// ideally it should compare hashs. Save that work
+	// for another day. Running out of time.
+	private boolean verify()
+	{
+
+		//CardDeck unshuffledDeck = new CardDeck();
+		for (int x=0; x < Constants.DECK_SIZE; x++)
+		{
+			BlackJackCard unshuffledCard = unshuffledDeck.get(x);
+			BlackJackCard shuffledCard = this.deck.get(x);
+			
+			Rank orginalCardRank = unshuffledCard.getRank();
+			Rank shuffledCardRank = shuffledCard.getRank();
+			if (orginalCardRank == shuffledCardRank)
+			{
+				Suit orginalCardSuit = unshuffledCard.getSuit();
+				Suit shuffledCardSuit = shuffledCard.getSuit();
+				if (orginalCardSuit == shuffledCardSuit)
+				{
+					if (orginalCardSuit == shuffledCardSuit)
+						return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+
+	// resets the top card to the top of deck of 52 cards
+	public void reset()
+	{
+		
+		topCardIndex = 0;
+	}
+	
+	/**
+	 * 
+	 * @returns the next card in deck.
+	 */
+	public BlackJackCard getNextCard()
+	{
+		BlackJackCard nextCard = this.deck.get(topCardIndex);
+		topCardIndex++;
+		return nextCard;
+	}
+	
+
+	// Shuffle deck X number of times
+	public void shuffle (int _shuffleNumber)
+	{
+		for (int x = 1; x<= _shuffleNumber; x++)
+		{
+			shuffle();
+		}	
+	}
+	
+	// swap card positions. Used when shuffling deck
+	private void swap(int _pos1, int _pos2)
+	{
+		BlackJackCard card1 = this.deck.toArray(new BlackJackCard[0])[_pos1];
+		BlackJackCard card2 = this.deck.toArray(new BlackJackCard[0])[_pos2];
+		this.deck.set(_pos1, card2);
+		this.deck.set(_pos2, card1);
+	}
+	
+    @Override
+    public Iterator<BlackJackCard> iterator() 
+    {
+        return new Iterator<BlackJackCard> () 
+        {
+            private final Iterator<BlackJackCard> deckInterator = deck.iterator();
+
+            @Override
+            public boolean hasNext() 
+            {
+                return deckInterator.hasNext();
+            }
+
+            @Override
+            public BlackJackCard next() 
+            {
+                return deckInterator.next();
+            }
+
+            @Override
+            public void remove() 
+            {
+                throw new UnsupportedOperationException("Cards can not be removed from deck");
+            }
+        };
+	
+    }
+}

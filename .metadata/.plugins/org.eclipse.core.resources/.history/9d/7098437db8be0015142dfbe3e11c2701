@@ -1,0 +1,43 @@
+package Poker;
+
+public class BlackjackGame extends CardGame
+{
+
+	CardDeck blackjackDeck;
+	int currentCardIndex = 0;
+	
+	public BlackjackGame(String _nameOfGame, String _welcomeMessage)
+	{
+		super(_nameOfGame, _welcomeMessage);
+		blackjackDeck = new CardDeck();
+		currentCardIndex = 0;
+	}
+
+	@Override
+	public void shuffle()
+	{
+		blackjackDeck.shuffle();
+
+	}
+
+	@Override
+	public PokerCard cardDeal()
+	{
+		return this.blackjackDeck.getNextCard();
+
+	}
+
+	@Override
+	public void playRound()
+	{
+		PokerCard card1 = this.cardDeal();
+		PokerCard card2 = this.cardDeal();
+		int total = card1.cardValue = card2.cardValue;
+		System.out.println("total: " + total);
+		System.out.println(this.cardDeal().toString());
+		
+		
+
+	}
+
+}

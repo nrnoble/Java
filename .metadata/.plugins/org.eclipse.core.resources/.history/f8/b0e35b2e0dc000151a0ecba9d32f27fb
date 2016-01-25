@@ -1,0 +1,27 @@
+
+
+/**
+ * Global constants used in the game
+ * @author Neal Noble
+ *
+ */
+public class Constants2
+{
+	public final static int  DECK_SIZE = 52;
+	public final static int  TwentyOne = 21;
+	public final static String YOU_HAVE_21 = "You have 21. The dealer must match your score";
+	public final static String YOUR_HAND_IS_A_BUST = "Your score is a bust, dealer wins";
+	public final static String HIT_ME = "Hit me [default: yes]";
+	public final static String DEALER_WINS = "Dealer Wins";
+	public final static String DEALER_BEATS_PLAYER_SCORE = "The dealer has beat your hand!";
+	public final static String PLAY_ANOTHER_GAME = "Do you want to play another round [default='y']";
+	public final static String DEALER_BUSTED = "You WIN! Dealer has busted!";
+	public final static String DRAW = "The dealer also scored 21. This round is a draw";
+	public final static String WELCOME_MESSSAGE = "Welcome to Bacic BlackJack 2016!";
+	public final static String GAME_NAME = "Bacic BlackJack 2016!";
+	public final static String DIVIDER = "---------------------------------------------------";
+	public final static String DEALERS_NAME = "Dealer's";
+	public final static String PLAYERS_NAME = "Your";
+	public final static char Y = 'y';
+	public final static String THANK_YOU = "Thank you for playing Basic Black Jack 2016";
+}

@@ -1,0 +1,30 @@
+package Poker;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Hand
+{
+	protected List <PokerCard> hand = new ArrayList<PokerCard>();
+	protected int handValue = 0;
+	
+	 public Hand()
+	 {
+		 
+	 }
+	
+	 public void addCard(PokerCard _card)
+	 {
+		 hand.add(_card);
+	 }
+	 public abstract void removeCard(PokerCard card);
+	 protected abstract void calculateHandValue();
+
+	public int getHandValue()
+	{
+		calculateHandValue();
+		return handValue;
+	}
+
+
+}

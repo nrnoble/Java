@@ -1,0 +1,23 @@
+package Poker;
+
+import java.util.Scanner;
+import java.awt.*;
+import java.awt.event.*;
+
+public class KeyListener extends KeyAdapter
+{
+
+    public static void main(String[] args)
+{
+
+    String choice = keyboard.nextLine();
+    System.out.println("Running listener...");
+}
+
+public static char getKeyPressed(KeyEvent e)
+{
+   char key = e.getKeyChar();
+    System.out.println("You pressed: "+key);
+    return key;
+}
+}

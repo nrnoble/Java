@@ -1,0 +1,11 @@
+package nrnoble;
+
+public class BooleanArray
+{
+
+	public BooleanArray()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

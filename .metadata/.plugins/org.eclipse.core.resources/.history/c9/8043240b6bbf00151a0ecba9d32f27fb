@@ -1,0 +1,97 @@
+package Poker;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import javax.swing.JFrame;
+import javax.swing.JRootPane;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
+
+
+public class KeyPress
+{
+	
+	public static int getKey()
+
+{
+	InputStreamReader reader = new InputStreamReader(System.in); 
+	boolean  exit = false;
+	int keyPress = 0;
+	while(!exit) 
+	{ 
+		try
+		{
+			if ( reader.ready()) 
+			{ 
+				try
+				{
+					keyPress = reader.read();
+					exit = true;
+				} 
+				catch (IOException e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		} catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+	 
+		// edit, lets not hog any cpu time 
+		try 
+		{ 
+			Thread.sleep(50); 
+		} 
+		catch (InterruptedException ex) 
+		{ 
+			// can't do much about it can we? Ignoring  
+		} 
+	}
+	return keyPress;
+}
+
+
+	public static void getCh() 
+	{  
+        final JFrame frame = new JFrame();  
+        synchronized (frame) 
+        {  
+            frame.setUndecorated(true);  
+            frame.getRootPane().setWindowDecorationStyle(JRootPane.FRAME);  
+            frame.addKeyListener(new KeyListener() 
+            {
+                @Override 
+                public void keyPressed(KeyEvent e) 
+                {  
+                    synchronized (frame) {  
+                        frame.setVisible(false);  
+                        frame.dispose();  
+                        frame.notify();  
+                    }  
+                }  
+                @Override 
+                public void keyReleased(KeyEvent e) 
+                {  
+                }  
+                @Override 
+                public void keyTyped(KeyEvent e) 
+                {  
+                }  
+            });  
+            frame.setVisible(true);  
+            try 
+            {  
+                frame.wait();  
+            } catch (InterruptedException e1) 
+            {  
+            }  
+        }  
+	    
+		
+	}
+	
+}

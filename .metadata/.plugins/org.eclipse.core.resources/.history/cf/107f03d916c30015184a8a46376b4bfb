@@ -1,0 +1,71 @@
+package nrnoble;
+
+// 5. Create a class called BooleanArray. Your class should store a single integer field. 
+//    Your class should allow users to assign 1 (true) or 0 (false) to any bit in the integer 
+//    field using the following methods:
+//
+//	     •	void setTrue(int index)
+//	     •	void setFalse(int index)
+//       •	boolean isTrue(int index) //returns true if the bit is set to one, otherwise false
+
+
+
+
+public class BooleanArray
+{
+	
+	private int bitArray = 0;
+	private static final int SHIFT = 0b00000001;
+	private static final String EMPTY = "";
+	private static final int ZERO = 0;
+	private static final int ZEROINDEX = 0;
+	private static final String SPACE = " ";
+
+	public BooleanArray()
+	{
+		// Nothing to initialize
+	}
+
+	
+	public void setTrue(int _index)
+	{
+		int mask = getMask (_index);
+		this.bitArray = this.bitArray | mask;
+	}
+	
+	public void setFalse(int _index)
+	{
+		int mask = ~getMask (_index);
+		this.bitArray = this.bitArray & mask;
+	}
+	
+	public boolean isTrue(int _index)
+	{
+		int mask = getMask (_index);
+		int bitTestResult = this.bitArray & mask;
+		if (bitTestResult == 0)
+			return false;
+		
+		return true;	
+	}
+	
+	public String bitString()
+	{
+		return Bitwise.toBinaryStr(this.bitArray,16);
+	}
+	
+	private int getMask (int _index)
+	{
+		int indexPointer = ZEROINDEX;
+		int mask = 0b00000001;
+		while (indexPointer < _index)
+		{
+			mask = mask << SHIFT;
+			indexPointer++;
+		}
+		
+		return mask;
+		
+	}
+	
+}

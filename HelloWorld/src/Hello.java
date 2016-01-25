@@ -1,0 +1,21 @@
+/**  * A Hello World program in Java  */ 
+public class Hello
+{
+     /**      * The entry point for this class; when executed,
+      * the program prints “Hello World” and terminates
+      * @param args command-line arguments
+      */     
+	
+	public enum Rank 
+	{    
+		Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King
+	
+	}	
+	
+	public static void main( String args[] ) 
+	{
+         System.out.println( "Hello World" );
+     	for (Rank item : Rank.values()) 
+    	    System.out.println(item);
+     } 
+} // HelloWorld

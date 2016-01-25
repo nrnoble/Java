@@ -1,0 +1,16 @@
+1452084244043	Rename field 'image3'
+1452084279086	Rename field 'Ace'
+1452089987903	Rename local variable '_x'
+1452090054423	Rename local variable '_y'
+1452090070538	Rename local variable '_xpoint'
+1452091014771	Copy type
+1452091288178	Copy type
+1452091882071	Delete element
+1452092668829	Rename field 'img'
+1452098379465	Rename field 'Rank'
+1452167163821	Rename type 'CardSubImage'
+1452168556696	Rename local variable 'x'
+1452168586974	Rename local variable 'width'
+1452168597533	Rename local variable 'height'
+1452168605122	Rename local variable 'rank'
+1452177020019	Rename field 'containerImage'

@@ -1,0 +1,6 @@
+package Poker;
+public class Constants
+{
+	public final static int  DECK_SIZE = 52;
+	
+}

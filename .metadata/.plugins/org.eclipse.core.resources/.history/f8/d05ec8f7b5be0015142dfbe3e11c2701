@@ -1,0 +1,48 @@
+package Poker;
+/*
+4. Create a driver class called CardGameTest. Instantiate an array of poker card objects. 
+Your array should have all cards in a 52 card deck (Links to an external site.). Loop 
+over your array and print out each of the cards using their toString() methods
+.*/
+
+import java.util.*;
+
+
+// Output will display all 52 cards in a deck by suit and rank
+public class CardGameTest 
+{
+	// using a foreach loop, iterate through each Suit and Rank 
+	// to create individual cards that are then added to the List deck
+	// enum Suit = Hearts, Clubs, Diamonds, Spades
+	// enum Rank = Ace, Two, Three, Four, Five, Six, Seven, 
+	// Eight, Nine, Ten, Jack, Queen, King
+	
+	@SuppressWarnings("unused")
+	private static List<PokerCard> createCardDeck()
+	{
+		List <PokerCard> deck = new ArrayList<PokerCard>();
+		for (Suit suit : Suit.values())
+			for (Rank rank : Rank.values())
+				deck.add(new PokerCard(suit,rank));
+		
+		return deck;
+	}
+	
+	// Start executing program
+	// List all cards in deck.
+	public static void main (String args[])
+	{
+		//List <PokerCard> deckOfCards =  createCardDeck();
+		
+		CardDeck deckOfCards = new CardDeck();
+		deckOfCards.shuffle(5);
+		int cardCount = 0;
+		for (PokerCard card : deckOfCards)
+		{
+			System.out.println(card.toString());
+			
+		}
+	}
+	
+	
+}

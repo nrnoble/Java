@@ -1,0 +1,31 @@
+package Poker;
+
+public class PokerHand extends Hand
+{
+
+	public PokerHand()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getHandValue()
+	{
+		return this.handValue;
+	}
+
+	@Override
+	public void removeCard(PokerCard card)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void handValue()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

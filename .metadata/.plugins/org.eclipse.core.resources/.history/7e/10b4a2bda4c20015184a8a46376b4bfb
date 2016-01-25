@@ -1,0 +1,44 @@
+package nrnoble;
+
+public class Main
+{
+
+	public Main()
+	{
+		// Nothing to do here.
+	}
+
+	public static void main(String[] args)
+	{
+		for (int counter = 0b00000000; counter <= 0b00001000; counter++)
+		{
+			displayAsBinary(counter,0b00001000);
+		}
+
+	}
+	
+	public static void displayAsBinary (int _num, int _numOfbits)
+	{
+		String binString = "";	
+		int mask = 0b00000001;
+		for (int bitIndex = 0; bitIndex < _numOfbits; bitIndex++)
+		{	
+			int maskResult = (_num & mask);
+			binString += bitToString(maskResult);
+			mask =  (mask << 0b00000001);
+		}
+		binString = new StringBuilder(binString).reverse().toString();
+		System.out.println(binString);
+	}
+
+	public static String bitToString(int bit)
+	{
+		if (bit == 0)
+		{
+			return "0";
+		}
+		
+		return "1";	
+	}
+
+}

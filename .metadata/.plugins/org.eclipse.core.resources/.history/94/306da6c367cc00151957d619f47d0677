@@ -1,0 +1,14 @@
+package nrnoble;
+
+public class Constants
+{
+
+	public Constants()
+	{
+		int HIGH = 1;
+		int LOW = -1;
+		int ZERO = 0;
+		int ONE = 1;
+	}
+
+}

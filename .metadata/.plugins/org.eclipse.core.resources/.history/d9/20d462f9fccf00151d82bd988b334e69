@@ -1,0 +1,23 @@
+package nrnoble;
+
+public class ExceptionMsg
+{
+	pubNullArgumentException ("Numerator and Denominator objects can not be null");
+	
+	
+
+
+	private final String text;
+	private ExceptionMsg(final String text)
+	{
+		this.text = text;
+	}
+
+	@Override
+	public String toString()
+	{
+		return text;
+	}
+
+
+}

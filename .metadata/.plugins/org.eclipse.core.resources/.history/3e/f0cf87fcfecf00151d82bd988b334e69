@@ -1,0 +1,43 @@
+package Exceptions;
+
+public class NullArgumentException extends RuntimeException
+{
+	public static final String NUMERATOR_DENOMINATOR  = "Numerator and Denominator objects can not be null";
+	public static final String NUMERATOR =  "Numerator object can not be null";
+	public static final String DENOMINATOR = "Denominator object can not be null";
+	public static final String ADD = "Can not complete addition operation because parameter is null";
+	public static final String SUBTRACT ="";
+	public static final String MULTIPLY ="";
+	public static final String DIVIDE ="";
+	
+	public NullArgumentException()
+	{
+		
+	}
+
+	public NullArgumentException(String arg0)
+	{
+		super(arg0);
+	
+	}
+
+	
+	public NullArgumentException(Throwable arg0)
+	{
+		super(arg0);
+		
+	}
+
+	public NullArgumentException(String arg0, Throwable arg1)
+	{
+		super(arg0, arg1);
+		
+	}
+
+	public NullArgumentException(String arg0, Throwable arg1, boolean arg2, boolean arg3)
+	{
+		super(arg0, arg1, arg2, arg3);
+
+	}
+
+}

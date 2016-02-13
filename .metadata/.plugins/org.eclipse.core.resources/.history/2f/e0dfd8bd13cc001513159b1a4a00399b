@@ -1,0 +1,42 @@
+package nrnoble;
+
+
+/**
+ * This class has static methods to test the Rational object class
+ * @author Neal Noble
+ *
+ */
+public class Driver
+{
+
+	private Driver()
+	{
+		// there is nothing to do here
+	}
+
+	 public static boolean verifyConstrustor1()
+	 {
+		 Rational rational = new Rational(10,5);
+		 System.out.println(;rational.toString());
+		 return false;
+	 }
+	 
+	 public static boolean constructor2()
+	 {
+		 
+		 return false;
+	 }
+	 
+	 public static boolean Test3()
+	 {
+		 
+		 return false;
+	 }
+	 
+	 
+	 public static boolean Test4()
+	 {
+		 
+		 return false;
+	 }
+}

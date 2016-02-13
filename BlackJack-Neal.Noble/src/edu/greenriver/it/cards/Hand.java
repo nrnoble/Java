@@ -3,6 +3,11 @@ package edu.greenriver.it.cards;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Abstract class for creating a hand of cards in any card game
+ * @author Neal
+ *
+ */
 public abstract class Hand
 {
 	public List <BlackJackCard> cards = new ArrayList<BlackJackCard>();
@@ -21,11 +26,25 @@ public abstract class Hand
 		 
 		 
 	 }
+	 /*
+	  * remove the card from hand or deck. 
+	  */
 	 public abstract void removeCard(BlackJackCard card);
+	 /**
+	  * calculate the current value of all the cards in the current hand
+	  */
 	 protected abstract void calculateHandValue();
+	 /**
+	  * Displays the cards one at time. Some cards maybe face down,
+	  * other cards may be showing the Suit and Rank
+	  */
 	 protected abstract void displayCards();
 	 protected abstract void displayHandValue();
 	 
+	/**
+	 * 
+	 * @return the total value of the cards currently in hand
+	 */
 	public int getHandValue()
 	{
 		//calculateHandValue();

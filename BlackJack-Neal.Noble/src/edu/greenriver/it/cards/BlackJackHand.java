@@ -26,18 +26,22 @@ public class BlackJackHand extends Hand
 		
 	}
 
-	// Displays cards with with their current visibility settings per card
+	/**
+	 * Displays cards with with their current visibility settings per card 
+	 */
 	@Override
 	public void displayCards()
 	{
-		
 		displayCards(CardVisibility.CURRENT_VISIBLITY);
 
 	}
 	
-	// This allows the visibility for entire hand to be changed
-	// such as flipping over all cards face up so that everyone can see 
-	// the cards.
+	/**
+	 * This allows the visibility for entire hand to be changed
+	 * such as flipping over all cards face up so that everyone can see 
+	 * the cards.
+	 * @param _visiablity Enum CardVisibility
+	 */
 	public void displayCards(CardVisibility _visiablity)
 	{
 		for (BlackJackCard card: this.cards)
@@ -51,7 +55,9 @@ public class BlackJackHand extends Hand
 		}
 	}
 	
-
+	/**
+	 *  Displays in console the total value of the combined cards in hand
+	 */
 	@Override
 	public void displayHandValue()
 	{

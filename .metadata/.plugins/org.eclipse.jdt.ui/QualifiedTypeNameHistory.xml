@@ -12,5 +12,13 @@
 <fullyQualifiedTypeName name="edu.greenriver.it.Utilities.Constants"/>
 <fullyQualifiedTypeName name="nrnoble.Main.Operand"/>
 <fullyQualifiedTypeName name="Main.Balls"/>
+<fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
+<fullyQualifiedTypeName name="java.util.NoSuchElementException"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="nrnoble.Operator"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="nrnoble.Driver"/>
+<fullyQualifiedTypeName name="java.io.Console"/>
+<fullyQualifiedTypeName name="java.util.InputMismatchException"/>
 </qualifiedTypeNameHistroy>

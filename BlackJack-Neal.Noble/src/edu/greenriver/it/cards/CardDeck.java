@@ -18,7 +18,9 @@ public class CardDeck implements Iterable<BlackJackCard>
 	private List <BlackJackCard> unshuffledDeck;
 	private int topCardIndex;
 	
-	// constructor. Creates a deck of unshuffled cards
+	/**
+	 *  constructor. Creates a deck of unshuffled cards
+	 */
 	public CardDeck()
 	{	
 		this.deck = createCardDeck();
@@ -26,7 +28,10 @@ public class CardDeck implements Iterable<BlackJackCard>
 		topCardIndex = 0;
 	}
 	
-	//create an unshuffled deck of 52 cards
+	/**
+	 * create an unshuffled deck of 52 cards
+	 * @return Deck
+	 */
 	private List<BlackJackCard> createCardDeck()
 	{
 		List <BlackJackCard> newDeck = new ArrayList<BlackJackCard>();
@@ -36,7 +41,9 @@ public class CardDeck implements Iterable<BlackJackCard>
 		return newDeck;
 	}
 	
-	// shuffle deck once
+	/**
+	 *  shuffle deck once
+	 */
 	public void shuffle()
 	{
 		for (int pos1 = 0; pos1 < Constants.DECK_SIZE; pos1++)
@@ -55,13 +62,16 @@ public class CardDeck implements Iterable<BlackJackCard>
 
 	}
 	
-	// verify that all cards are in a different position
-	// when compared to original. Compare rank first; 1 in 13 
-	// chance of being the same rank. If same rank, then compare 
-	// suit. return false if both rank & suit are true.
-	// This works well enough, but really is a hack.
-	// ideally it should compare hashs. Save that work
-	// for another day. Running out of time.
+	/**
+	 *  verify that all cards are in a different position
+	 * when compared to original. Compare rank first; 1 in 13 
+	 * chance of being the same rank. If same rank, then compare 
+	 * suit. return false if both rank & suit are true.
+	 * This works well enough, but really is a hack.
+	 * ideally it should compare hashs. Save that work
+	 * for another day. Running out of time.
+	 * @return
+	 */
 	private boolean verify()
 	{
 
@@ -88,7 +98,9 @@ public class CardDeck implements Iterable<BlackJackCard>
 	}
 	
 
-	// resets the top card to the top of deck of 52 cards
+	/**
+	 *  resets the top card to the top of deck of 52 cards
+	 */
 	public void reset()
 	{
 		
@@ -107,7 +119,10 @@ public class CardDeck implements Iterable<BlackJackCard>
 	}
 	
 
-	// Shuffle deck X number of times
+	/**
+	 *  Shuffle deck X number of times
+	 * @param _shuffleNumber is the number of times to call Shuffle();
+	 */
 	public void shuffle (int _shuffleNumber)
 	{
 		for (int x = 1; x<= _shuffleNumber; x++)
@@ -125,6 +140,9 @@ public class CardDeck implements Iterable<BlackJackCard>
 		this.deck.set(_pos2, card1);
 	}
 	
+	/**
+	 * Internal use only. Creates Iterator for class
+	 */
     @Override
     public Iterator<BlackJackCard> iterator() 
     {
@@ -132,18 +150,30 @@ public class CardDeck implements Iterable<BlackJackCard>
         {
             private final Iterator<BlackJackCard> deckInterator = deck.iterator();
 
+            
+        	/**
+        	 * Is there another card in deck 
+        	 */
             @Override
             public boolean hasNext() 
             {
                 return deckInterator.hasNext();
             }
 
+            /**
+             * Get then next card in deck.
+             */
             @Override
             public BlackJackCard next() 
             {
                 return deckInterator.next();
             }
 
+            
+        	/**
+        	 * Do not use. Will throw error. Cards can't be removed from
+        	 * deck or hand in BlackJack 
+        	 */
             @Override
             public void remove() 
             {

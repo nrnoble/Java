@@ -1,0 +1,204 @@
+package nrnoble;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Exceptions.DivideByZeroException;
+import Exceptions.NullArgumentException;
+
+
+/**
+ * 
+ * @author Neal Noble<br>
+ * IT301<br>
+ * Assignment - Exceptions<br>
+ * Feb 5th, 2016<br>
+ */
+
+public class Driver
+{
+
+	public List <Rational> rationalNums_R1 = new ArrayList<Rational>();
+	public List <Rational> rationalNums_R2 = new ArrayList<Rational>();
+	
+	
+
+	public Driver()
+	{
+
+		
+		rationalNums_R1.add(new Rational(Constants.ONE,Constants.ONE));
+		rationalNums_R1.add(new Rational(Constants.ZERO,Constants.ZERO));
+		//rationalNums_R1.add(new Rational(Constants.HIGH,Constants.LOW));
+		rationalNums_R1.add(new Rational(Constants.LOW,Constants.HIGH));
+
+		rationalNums_R2.add(new Rational(Constants.ONE, Constants.ONE));
+		rationalNums_R2.add(new Rational(Constants.ZERO, Constants.ZERO));
+		rationalNums_R2.add(new Rational(Constants.HIGH, Constants.LOW));
+		//rationalNums_R2.add(new Rational(Constants.LOW, Constants.HIGH));
+		
+	}
+
+	 public  void test_Constructors()
+	 {
+		 	
+		 		// creating valid objects to best used during the 
+		 		// testing of constructor parameters
+		 		Rational r1 = new Rational(10,10);  
+		 		Rational r2 = new Rational(2,6); 
+		 		System.out.println("Constructor Tests....\r");
+		 		// Tests below
+				try
+				{
+					Rational r3 = new Rational(r1,null);	
+				} 
+				catch (NullArgumentException e)
+				{
+					System.out.println("     " + e.getMessage());
+				}
+				
+				try
+				{
+					Rational r4 = new Rational(null,r2);	
+				} 
+				catch (NullArgumentException e)
+				{
+					System.out.println("     " + e.getMessage());
+				}
+				
+				try
+				{
+					Rational r5 = new Rational(null,null);	
+				} 
+				catch (NullArgumentException e)
+				{
+					System.out.println("     " + e.getMessage());
+				}
+				System.out.println();
+				System.out.println("Constructor Tests....Done\r");
+		 	
+	 }
+	 
+	 public void test_Subtract()
+	 {
+		System.out.println("Subtract Tests....\r");
+		for (Rational r1 : rationalNums_R1)
+			 for (Rational r2 : rationalNums_R2)
+			 {
+				try
+				{
+					r1.subtract(r2);
+				} 
+				catch (NullArgumentException e)
+				{
+						System.out.println("Exception: " + e.getMessage());
+				}
+				catch (DivideByZeroException e)
+				{
+					System.out.println("Exception: " + e.getMessage());;
+				}
+				catch (Exception e)
+				{
+					System.out.println("Exception: " + e.getMessage());;
+				}
+			 }
+		System.out.println();
+		System.out.println("Subtract Tests....Done\r");
+	 }
+	 
+	 public  void test_Add()
+	 {
+		System.out.println("Add Tests....\r");
+		for (Rational r1 : rationalNums_R1)
+			 for (Rational r2 : rationalNums_R2)
+			 {
+				try
+				{
+					r1.add(r2);
+				} 
+				catch (NullArgumentException e)
+				{
+						System.out.println("Exception: " + e.getMessage());
+				}
+				catch (DivideByZeroException e)
+				{
+					System.out.println("Exception: " + e.getMessage());;
+				}
+				catch (Exception e)
+				{
+					System.out.println("Exception: " + e.getMessage());;
+				}
+			 }
+		
+		System.out.println();
+		System.out.println("Add Tests....Done\r");
+		 
+	 }
+	 
+	 
+	 public void test_Multiply()
+	 {
+		System.out.println("Multiply Tests....\r");
+		for (Rational r1 : rationalNums_R1)
+			 for (Rational r2 : rationalNums_R2)
+			 {
+				try
+				{
+					r1.multiply(r2);
+				} 
+				catch (NullArgumentException e)
+				{
+						System.out.println("Exception: " + e.getMessage());
+				}
+				catch (DivideByZeroException e)
+				{
+					System.out.println("Exception: " + e.getMessage());;
+				}
+				catch (Exception e)
+				{
+					System.out.println("Exception: " + e.getMessage());;
+				}
+			 }
+		
+		System.out.println();
+		System.out.println("Multiply Tests....Done\r");
+		 
+	 }
+	 
+	 
+	 
+	 public void test_Division()
+	 {
+		System.out.println("Division Tests....\r");
+		for (Rational r1 : rationalNums_R1)
+			 for (Rational r2 : rationalNums_R2)
+			 {
+				try
+				{
+					r1.divide(r2);
+				} 
+				catch (NullArgumentException e)
+				{
+						System.out.println("Exception: " + e.getMessage());
+				}
+				catch (DivideByZeroException e)
+				{
+					System.out.println("Exception: " + e.getMessage());;
+				}
+				catch (Exception e)
+				{
+					System.out.println("Exception: " + e.getMessage());;
+				}
+			 }
+		
+		System.out.println();
+		System.out.println("Division Tests....Done\r");
+		 
+	 }
+	 
+	 public static boolean Test4()
+	 {
+		 
+		 return false;
+	 }
+}

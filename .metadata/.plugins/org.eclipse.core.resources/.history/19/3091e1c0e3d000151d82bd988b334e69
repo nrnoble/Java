@@ -1,0 +1,11 @@
+package nrnoble;
+
+public class Fruit
+{
+
+	public Fruit()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

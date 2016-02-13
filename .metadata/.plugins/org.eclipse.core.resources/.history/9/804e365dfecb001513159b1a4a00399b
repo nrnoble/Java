@@ -1,0 +1,112 @@
+package nrnoble;
+
+
+/*
+ * Create a class that stores rational numbers. It should have the following fields/methods:
+ *
+ * Fields
+ * int numerator
+ * int denominator
+ * Methods
+ * public Rational(int numerator, int denominator) //constructor
+ * public Rational(Rational numerator, Rational denominator) //constructor
+ * public int getNumerator()
+ * public int getDenominator()
+ * public String toString()
+ * public Rational add(Rational other)
+ * public Rational subtract(Rational other)
+ * public Rational multiply(Rational other)
+ * public Rational divide(Rational other)
+ *  
+ */
+
+
+/**
+* @author  Neal Noble<br>
+* IT301<br>
+* Exercises – Custom Exceptions<br>
+* January 29th, 2016<br>
+*/
+public class Rational extends Main
+{
+	 private int numerator;
+	 private int denominator;
+	 
+	public Rational()
+	{
+		
+	}
+	
+	 public Rational(int _numerator, int _denominator)
+	 {
+		 
+		 this.numerator = _numerator;
+		 this.denominator = _denominator; 
+	 }
+	 
+	 
+	 public Rational(Rational _numerator, Rational _denominator)
+     {
+		 this.numerator = _numerator.getNumerator();
+		 this.denominator = _denominator.getDenominator(); 
+		 
+	 }
+	 
+	 
+	 public int getNumerator()
+     {
+		 
+		 return this.numerator;
+	 }
+	 
+	 
+	 public int getDenominator()
+     {
+		 
+		 return this.denominator;
+	 }
+	 
+	 
+	 public String toString()
+     {
+		 String toStr = "Numerator: " + this.numerator + "\n\r Denominator: " + this.denominator;
+		 return toStr;
+	 }
+	 
+	 
+	 public Rational add(Rational other)
+     {
+		 Rational rational = new Rational();
+		 
+		 return rational;
+		 
+	 }
+	 
+	 
+	 public Rational subtract(Rational other)
+     {
+		 Rational rational = new Rational();
+		 
+		 return rational;
+	 }
+	 
+	 
+	 public Rational multiply(Rational other)
+     {
+		 Rational rational = new Rational();
+		 
+		 return rational; 
+	 }
+	 
+	 
+	 public Rational divide(Rational other)
+     {
+		 Rational rational = new Rational();
+		 
+		 return rational;
+	 }
+	 
+	 
+	
+
+}

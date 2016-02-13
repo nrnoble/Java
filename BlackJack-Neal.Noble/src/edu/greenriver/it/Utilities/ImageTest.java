@@ -9,6 +9,11 @@ import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
+/**
+ * Future use. This displays cards in a GUI interface of cards game
+ * @author Neal Noble
+ *
+ */
 public class ImageTest {
     public static void main(String[] args){
         EventQueue.invokeLater(new Runnable()

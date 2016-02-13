@@ -1,9 +1,0 @@
-package Poker;
-public class Constants
-{
-	public final static int  DECK_SIZE = 52;
-	public final static string YOU_HAVE_21 = "You have 21. The dealer must match your score";
-	public final static string YOUR_HAND_IS_A_BUST = "Your and is a bust, dealer wins";
-	
-	
-}

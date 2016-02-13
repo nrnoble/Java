@@ -1,0 +1,27 @@
+package nrnoble;
+
+/**
+ * Start of application
+ * @author Neal Noble
+ *
+ */
+public class Main
+{
+
+	public Main()
+	{
+		// Nothing to do here
+	}
+
+	
+	/**
+	 * Application starts here
+	 * @param args not in use
+	 */
+	public static void main(String[] args)
+	{
+		
+
+	}
+
+}

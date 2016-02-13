@@ -1,0 +1,11 @@
+package nrnoble;
+
+public class Vars
+{
+
+	public Vars()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

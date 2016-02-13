@@ -1,0 +1,34 @@
+package nrnoble;
+
+public class Main
+{
+
+	public Main()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args)
+	{
+		try
+		{
+		String message = “hello world!”;
+
+		//print our message
+		System.out.println(message.toString());
+
+		//print that we’re all done
+		System.out.println(“Done!”);
+		}
+		catch (InputMismatchException ex)
+		{
+		System.out.println(“An error occurred.”);
+		}
+		finally
+		{
+		System.out.println(“What happens here?”);
+		}
+
+	}
+
+}

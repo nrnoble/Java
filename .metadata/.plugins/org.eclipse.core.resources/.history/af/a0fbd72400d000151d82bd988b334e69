@@ -1,0 +1,10 @@
+
+public class Const
+{
+
+	public Const()
+	{
+		public static final String NULLARGUMENTEXCEPTION = "Numerator and Denominator objects can not be null";
+	}
+
+}

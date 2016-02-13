@@ -1,0 +1,176 @@
+package nrnoble;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+/**
+ * This class has static methods to test the Rational object class
+ * @author Neal Noble
+ *
+ */
+public class Driver
+{
+
+	public List <Rational> rationalNums_R1 = new ArrayList<Rational>();
+	public List <Rational> rationalNums_R2 = new ArrayList<Rational>();
+	
+	
+
+	public Driver()
+	{
+
+		
+		rationalNums_R1.add(new Rational(Constants.ONE,Constants.ONE));
+		rationalNums_R1.add(new Rational(Constants.ZERO,Constants.ZERO));
+		rationalNums_R1.add(new Rational(Constants.HIGH,Constants.LOW));
+		rationalNums_R1.add(new Rational(Constants.LOW,Constants.HIGH));
+
+		rationalNums_R2.add(new Rational(Constants.ONE, Constants.ONE));
+		rationalNums_R2.add(new Rational(Constants.ZERO, Constants.ZERO));
+		rationalNums_R2.add(new Rational(Constants.HIGH, Constants.LOW));
+		rationalNums_R2.add(new Rational(Constants.LOW, Constants.HIGH));
+
+		
+		
+		
+		/*
+		for (int index = low; index <= high; index++)
+		{
+			for (int index2 = low; index <= high; index2++)
+			{	
+				for (int index3 = low; index <= high; index3++)
+				{	
+					for (int index4 = low; index <= high; index4++)
+					{	
+						rationalNums_R1.add(new Rational(index,index2));
+						rationalNums_R2.add(new Rational(index3,index4));
+					}
+				}
+			}
+		}
+		*/
+		
+	}
+
+	 public  boolean verifyConstrustor1()
+	 {
+		 Rational rational = new Rational(5,10);
+		
+		 System.out.println(rational.toString());
+		 return false;
+	 }
+	 
+	 public  boolean constructor2()
+	 {
+		 
+		 return false;
+	 }
+	 
+	 public  boolean Test_Add()
+	 {
+		 
+		 for (Rational r1 : rationalNums_R1)
+			 for (Rational r2 : rationalNums_R2)
+				 r1.add(r2);
+
+		 
+		 
+		 
+		 return true;
+		 
+	 }
+	 
+	 /*
+	 public static void displayFraction (Rational r1, Rational r2, Operator op)
+	 {
+		  string operand = "";
+		 
+		  int a = r1.getNumerator();
+		  int b = r1.getDenominator();
+		  int c = r2.getNumerator();
+		  int d = r2.getDenominator();
+		  
+
+		  
+		  if (op == Operator.Add)
+		  {
+
+			  r1.add(r2);
+			  
+			  // assign to internal fields and simplify
+			  r1.setNumerator(numerator);
+			  r1.setDenominator(denominator);
+			  r1.simplify();
+			  
+			  System.out.println("      " + a +  "     " + c  + "        (" + a + " * " + d + ") + (" + b + " * " + c +")       " + numerator + "       " + r1.getNumerator());
+			  System.out.println("     --- + ---  =  --------------------  =  ---  =  ---");
+			  System.out.println("      " + b  + "     " + d  + "              " + b + " * " + d + "             " + denominator + "       " + r1.getDenominator());
+			  System.out.println(); 
+			  return;
+		  }
+		  
+		  if (op == Operator.Subtract)
+		  {
+
+			  // create these for display output
+			  int numerator = (a * d) - (b * c) ;
+			  int denominator = b * d;   
+			  
+			  // assign to internal fields and simplify
+			  r1.setNumerator(numerator);
+			  r1.setDenominator(denominator);
+			  r1.simplify();
+			  
+			  System.out.println("      " + a +  "     " + c  + "        (" + a + " * " + d + ") - (" + b + " * " + c +")       " + numerator + "       " + r1.getNumerator());
+			  System.out.println("     --- + ---  =  --------------------  =  ---  =  ---");
+			  System.out.println("      " + b  + "     " + d  + "              " + b + " * " + d + "             " + denominator + "       " + r1.getDenominator());
+			  System.out.println(); 
+		  }
+		  
+		  if (op == Operator.Multiple)
+		  {
+
+			  // create these for display output
+			  int numerator = (a * d) - (b * c) ;
+			  int denominator = b * d;   
+			  
+			  // assign to internal fields and simplify
+			  r1.setNumerator(numerator);
+			  r1.setDenominator(denominator);
+			  r1.simplify();
+			  
+			  System.out.println("      " + a +  "     " + c  + "        (" + a + " * " + d + ") - (" + b + " * " + c +")       " + numerator + "       " + r1.getNumerator());
+			  System.out.println("     --- + ---  =  --------------------  =  ---  =  ---");
+			  System.out.println("      " + b  + "     " + d  + "              " + b + " * " + d + "             " + denominator + "       " + r1.getDenominator());
+			  System.out.println(); 
+		  }
+		  
+		  
+		  if (op == Operator.Divide)
+		  {
+
+			  // create these for display output
+			  int numerator = (a * d) - (b * c) ;
+			  int denominator = b * d;   
+			  
+			  // assign to internal fields and simplify
+			  r1.setNumerator(numerator);
+			  r1.setDenominator(denominator);
+			  r1.simplify();
+			  
+			  System.out.println("      " + a +  "     " + c  + "        (" + a + " * " + d + ") - (" + b + " * " + c +")       " + numerator + "       " + r1.getNumerator());
+			  System.out.println("     --- + ---  =  --------------------  =  ---  =  ---");
+			  System.out.println("      " + b  + "     " + d  + "              " + b + " * " + d + "             " + denominator + "       " + r1.getDenominator());
+			  System.out.println(); 
+		  }
+		  
+	 }
+	 */
+	 
+	 public static boolean Test4()
+	 {
+		 
+		 return false;
+	 }
+}

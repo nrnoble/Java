@@ -1,0 +1,41 @@
+	 
+	 // TODO: this is a total hack
+	 // I don't like it, but at the moment I just need to get this completed.
+	 // Need to come back to it later to find a better approach
+	 private String toString(String _callingMethod)
+     {
+		 
+		 
+		  if (_callingMethod == "add")
+		  {
+			  toString_line_1 = String.format("      %03d     %03d        (%03d * %03d) + (%03d * %03d)       %03d       %03d", a,c,a,d,b,c,r1_Numerator,this.numerator);
+			  toString_line_2 = "     ----- + -----  =  ----------------------------  =  -----  =  -----";
+			  toString_line_3 = String.format("      %03d     %03d                %03d * %03d               %03d       %03d",b,d,b,d,r1_denominator,this.denominator);
+
+		  }
+		  
+		  
+		  if (_callingMethod == "subtract")
+		  {
+			  toString_line_1 = String.format("      %03d     %03d        (%03d * %03d) - (%03d * %03d)       %03d       %03d", a,c,a,d,b,c,r1_Numerator,this.numerator);
+			  toString_line_2 = "     ----- - -----  =  ----------------------------  =  -----  =  -----";
+			  toString_line_3 = String.format("      %03d     %03d                %03d * %03d               %03d       %03d",b,d,b,d,r1_denominator,this.denominator);
+		  }
+		  
+		  if (_callingMethod == "multiply")
+		  {
+			  toString_returnString = toString_line_1 + "\r\n" + toString_line_2 + "\r\n" + toString_line_3 + "\r\n";
+			 
+		  }
+		  
+		  if (_callingMethod == "divide")
+		  {
+			  toString_returnString = toString_line_1 + "\r\n" + toString_line_2 + "\r\n" + toString_line_3 + "\r\n";
+			  
+		  }
+		  
+		  toString_returnString = toString_line_1 + "\r\n" + toString_line_2 + "\r\n" + toString_line_3 + "\r\n";
+		  
+		  return toString_returnString;
+		  
+	 }

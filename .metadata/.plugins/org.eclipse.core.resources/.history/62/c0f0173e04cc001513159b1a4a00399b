@@ -1,0 +1,17 @@
+package nrnoble;
+
+public class Main
+{
+
+	public Main()
+	{
+		// Nothing to do here
+	}
+
+	public static void main(String[] args)
+	{
+		
+
+	}
+
+}

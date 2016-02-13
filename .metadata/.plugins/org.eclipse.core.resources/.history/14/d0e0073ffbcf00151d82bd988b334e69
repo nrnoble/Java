@@ -1,0 +1,43 @@
+package nrnoble;
+
+public enum ExceptionMsg
+{
+	NullArgumentException ("Numerator and Denominator objects can not be null");
+	
+	
+}
+
+private final String text;
+private ExceptionMsg(final String text)
+{
+	this.text = text;
+}
+
+@Override
+public String toString()
+{
+	return text;
+}
+
+public enum Strings {
+    STRING_ONE("ONE"),
+    STRING_TWO("TWO")
+    ;
+
+    private final String text;
+
+    /**
+     * @param text
+     */
+    private Strings(final String text) {
+        this.text = text;
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Enum#toString()
+     */
+    @Override
+    public String toString() {
+        return text;
+    }
+}

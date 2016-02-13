@@ -1,0 +1,216 @@
+package nrnoble;
+
+
+/*
+ * Create a class that stores rational numbers. It should have the following fields/methods:
+ *
+ * Fields
+ * int numerator
+ * int denominator
+ * Methods
+ * public Rational(int numerator, int denominator) //constructor
+ * public Rational(Rational numerator, Rational denominator) //constructor
+ * public int getNumerator()
+ * public int getDenominator()
+ * public String toString()
+ * public Rational add(Rational other)
+ * public Rational subtract(Rational other)
+ * public Rational multiply(Rational other)
+ * public Rational divide(Rational other)
+ *  
+ */
+
+
+/**
+* @author  Neal Noble<br>
+* IT301<br>
+* Exercises – Custom Exceptions<br>
+* January 29th, 2016<br>
+*/
+public class Rational extends Main
+{
+	 private int numerator = 0;
+	 private int denominator = 0;
+	 
+
+	 public Rational()
+	{
+		// made private so that it can not called.
+	}
+
+	 
+	 /**
+	  * Constructor
+	  * @param _numerator any positive or negative integer value
+	  * @param _denominator any positive or negative integer value
+	  */
+	 public Rational(int _numerator, int _denominator)
+	 {
+		 this.numerator = _numerator;
+		 this.denominator = _denominator; 
+		 this.simplify();
+	 }
+	 
+	 
+	 /**
+	  * Constructor
+	  * @param _numerator rational object
+	  * @param _denominator rational object
+	 * @throws Exception 
+	  */
+	 public Rational(Rational _numerator, Rational _denominator) throws Exception
+     {
+		
+		 // check parameters for null values. Throw error if null is detected.
+		 if (_numerator == null && _denominator == null)
+		 {
+			 throw new Exception("Numerator and Denominator objects can not be null");
+		 }
+		 
+	
+		 // Just check the numerator
+		 if (_numerator == null)
+		 {
+			 throw new Exception("Numerator object can not be null");
+		 }
+		 
+		 
+		 // Just check the denominator
+		 if (_denominator == null)
+		 {
+			 throw new Exception("Denominator object can not be null");
+		 }
+		 
+		 // checks has passed for both Numerator and denominator, 
+		 // assign values to internal values.
+		 
+		 this.numerator = _numerator.getNumerator();
+		 this.denominator = _denominator.getDenominator(); 
+		 
+	 }
+	 
+	 
+	 /**
+	  * Get the numerator value
+	  * @return the internal Numerator of this object
+	  */
+	 public int getNumerator()
+     {
+		 return this.numerator;
+	 }
+	 
+	 
+	 /**
+	  * Get the Denominator value
+	  * @return the internal Denominator of this object
+	  */
+	 public int getDenominator()
+     { 
+		 return this.denominator;
+	 }
+	 
+	 
+	 /**
+	  * @return the numerator and denominator as a string
+	  */
+	 public String toString()
+     {
+		
+		 return "Numerator:   " + this.numerator + "\nDenominator: " + this.denominator;
+	 }
+	 
+	 
+	 /**
+	  * Addition of two rational numbers
+	  * @param _rationalObj Rational object
+	  * @return the value of two rational objects added together
+	  */
+	 public Rational add(Rational _rationalObj)
+     {
+		 
+		
+		 /*
+		  * 	return new Fraction(numer * x.getDenom() 
+	      *	    + x.getNumer() * numer,
+	      *	    denom * x.getDenom();
+		  */
+		 int numerator = this.numerator * _rationalObj.getDenominator() 
+	    		    + _rationalObj.getNumerator() * this.numerator;
+		 int denominator = this.denominator * _rationalObj.getDenominator();
+	
+		 Rational rational =  new Rational(numerator,denominator);
+		
+		 
+		 return rational;
+		 
+	 }
+	 
+	 
+	 /**
+	  * Subtraction of rational numbers
+	  * @param _rationalObj Rational object
+	  * @return the value of rational number subtracted.
+	  */
+	 public Rational subtract(Rational _rationalObj)
+     {
+		 Rational rational = new Rational();
+		 
+		 return rational;
+	 }
+	 
+	 
+	 /**
+	  * Multiple of two ration numbers
+	  * @param _rationalObj Rational object
+	  * @return the value of two rational objects multiplied together
+	  */
+	 public Rational multiply(Rational _rationalObj)
+     {
+		 Rational rational = new Rational();
+
+		 return rational; 
+	 }
+	 
+	 
+	 /**
+	  * Division of two rational numbers
+	  * @param _rationalObj Rational object
+	  * @return the value of the division of a rational number.
+	  */
+	 public Rational divide(Rational _rationalObj)
+     {
+		 Rational rational = new Rational();
+		 
+		 return rational;
+	 }
+	 
+	 
+	// Euclidean
+	 private int gcd(int _numerator, int _denominator)
+	 {
+	     if (_denominator==0)
+	     {
+	    	 return _numerator;
+	     }
+	     return gcd(_denominator,_numerator%_denominator);
+	 }
+
+	 private void simplify()
+	 {
+	     int commonDenominator = gcd(this.numerator, this.denominator);
+	     this.numerator /= commonDenominator;
+	     this.denominator /= commonDenominator;
+	 }
+
+	 /*
+	 private fraction add(Fraction x)
+	 {
+	     return new Fraction(numer * x.getDenom() 
+	    		    + x.getNumer() * numer,
+	    		    denom * x.getDenom();  
+	 }
+	 */
+	 
+	 
+	
+}

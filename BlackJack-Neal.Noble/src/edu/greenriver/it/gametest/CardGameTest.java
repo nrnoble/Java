@@ -5,11 +5,19 @@ import edu.greenriver.it.Utilities.Constants;
 import edu.greenriver.it.Utilities.KeyPress;
 import edu.greenriver.it.cardgame.BlackjackGame;
 
+/**
+ * 
+ * @author Neal Noble
+ *
+ */
 public class CardGameTest 
 {
 
-	// Start executing program
-	// List all cards in deck.
+	/**
+	 *  Start executing card game
+	 * @param args not implemented
+	 */
+	
 	public static void main (String args[])
 	{
 

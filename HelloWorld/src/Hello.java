@@ -14,7 +14,13 @@ public class Hello
 	
 	public static void main( String args[] ) 
 	{
-         System.out.println( "Hello World" );
+       
+		byte myNumber = 127;
+		byte myNumber2 = 10;
+		
+	//	byte myNumber3 = (myNumber + myNumber2);
+		
+		//System.out.println( "Hello World" );
      	for (Rank item : Rank.values()) 
     	    System.out.println(item);
      } 

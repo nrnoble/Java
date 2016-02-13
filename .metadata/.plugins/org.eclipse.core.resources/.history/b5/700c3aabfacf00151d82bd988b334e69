@@ -1,0 +1,6 @@
+package nrnoble;
+
+public enum ExceptionMsg
+{
+	NullArgumentException = "Numerator and Denominator objects can not be null";
+}

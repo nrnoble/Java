@@ -1,0 +1,36 @@
+package nrnoble;
+
+/**
+ * Start of application
+ * @author Neal Noble
+ *
+ */
+public class Main
+{
+
+	/**
+	 * Not implemented, so make it private
+	 */
+	public Main()
+	{
+		// Nothing to do here
+	}
+
+	
+	/**
+	 * Application starts here
+	 * @param args not in use
+	 */
+	public static void main(String[] args)
+	{
+;
+		Driver driver = new Driver();
+		
+		
+		driver.test_Constructors();
+		driver.test_Add();
+		driver.test_Subtract();
+
+	}
+
+}

@@ -1,0 +1,20 @@
+package nrnoble;
+
+
+/**
+ * This class has static method to test the Rational object class
+ * @author Neal Noble
+ *
+ */
+public class Driver
+{
+
+	 public Driver()
+	{
+		// there is nothing to do here
+	}
+
+	 
+	 
+	 
+}

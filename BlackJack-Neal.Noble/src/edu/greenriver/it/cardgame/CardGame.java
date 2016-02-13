@@ -15,19 +15,24 @@ package edu.greenriver.it.cardgame;
 
 import edu.greenriver.it.cards.BlackJackCard;
 
-// With Blackjack this is a single match between the player and dealer
+/**
+ *  With Blackjack this is a single match between the player and dealer
+ * @author Neal
+ *
+ */
 // Create a child class of the "CardGame" class called "BlackjackGame." 
-
-
 public abstract class CardGame
 {
 
 	String nameOfGame;
 	String welcomeMessage;
-	
+	/**
+	 * 
+	 * @param _nameOfGame is the title of the game
+	 * @param _welcomeMessage is displayed to the user upon startup
+	 */
 	public CardGame(String _nameOfGame, String _welcomeMessage)
 	{
-	
 		this.nameOfGame = _nameOfGame;
 		this.welcomeMessage = _welcomeMessage;
 	}
@@ -35,16 +40,25 @@ public abstract class CardGame
 	
 	// This method will shuffle the deck of cards being used in the game
 	// You will need to use the Random class to generate random integers here
-	 public abstract void shuffle();
+	/**
+	 * This method will shuffle the deck of cards being used in the game
+	 * You will need to use the Random class to generate random integers here
+	 */
+	public abstract void shuffle();
 
 	
 
-	// Deals a single card from the deck to the user (notice the return type)
+	/**
+	 *  Deals a single card from the deck to the user (notice the return type)
+	 * @return
+	 */
 	public abstract BlackJackCard cardDeal();
 	
 
 	
-	// Plays a single hand in the game
+	/**
+	 *  Plays a single hand in the game
+	 */
 	public abstract void playRound();
 
 	// Deals more than one card to a single player
@@ -56,7 +70,6 @@ public abstract class CardGame
 	 */
 	public void DisplayWelcomeMessage()
 	{
-		
 		System.out.printf(this.welcomeMessage);
 	}
 

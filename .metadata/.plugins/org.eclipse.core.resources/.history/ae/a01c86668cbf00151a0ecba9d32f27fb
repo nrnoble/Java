@@ -1,6 +1,0 @@
-package Poker;
-
-public enum CardVisibility
-{
-	EVERYONE, PLAYER_ONLY,FACE_DOWN
-}

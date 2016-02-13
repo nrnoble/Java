@@ -1,17 +1,19 @@
 package edu.greenriver.it.cards;
 //12345678901234567890123456789012345678901234567890123456789012345678901234567890
 
+/**
+ * 
+ * @author Neal Noble
+ *
+ */
 public class BlackJackCard extends PlayingCard
 {
 	
-
-	public BlackJackCard(int _color, int _width, int _height, Suit _suit, Rank _rank ) 
-	{
-		super(_color, _width, _height);
-		this.rank = _rank;
-		this.suit = _suit;
-	}
-
+	/**
+	 * 
+	 * @param _suit is either Diamonds, Clubs, Spades, Hearts
+	 * @param _rank is Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King
+	 */
 	public BlackJackCard(Suit _suit, Rank _rank ) 
 	{
 
@@ -45,32 +47,54 @@ public class BlackJackCard extends PlayingCard
 	public int cardNumber;
 	public int cardValue;
 
-	
+	/**
+	 * 
+	 * @return the value of card
+	 */
 	public int getValue() 
 	{
 		return cardValue;
 	}
 	
+	/**
+	 * 
+	 * @return the rank of card
+	 */
 	public Rank getRank() 
 	{
 		return rank;
 	}
+	
+	/**
+	 * 
+	 * @param rank is enum Rank
+	 */
 	public void setRank(Rank rank) 
 	{
 		this.rank = rank;
 	}
 	
+	/**
+	 * 
+	 * @return the suit of card
+	 */
 	public Suit getSuit() 
 	{
 		return suit;
 	}
 	
+	/**
+	 * 
+	 * @param suit enum Suit
+	 */
 	public void setSuit(Suit suit) 
 	{
 		this.suit = suit;
 	}
 
-
+	/**
+	 * returns card Suit, Rank, and card visibility
+	 */
 	@Override
 	public String toString() 
 	{

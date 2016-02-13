@@ -1,0 +1,15 @@
+package nrnoble;
+
+public class Orange extends Fruit
+{
+	private double  circumference;
+	private String fruitType = "Orange";
+	
+	public Orange(double myCircumference)
+	{
+		
+		
+		circumference = myCircumference;
+	}
+}
+

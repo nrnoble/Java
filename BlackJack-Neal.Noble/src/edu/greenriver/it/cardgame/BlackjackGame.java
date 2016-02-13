@@ -27,12 +27,7 @@ public class BlackjackGame extends CardGame
 	/**
 	 *  Shuffle BlackJack deck of cards
 	 */
-	@Override
-	public void shuffle()
-	{
-		blackjackDeck.shuffle();
 
-	}
 
 	/**
 	 * Deal one card from top of deck
@@ -46,7 +41,7 @@ public class BlackjackGame extends CardGame
 			return card;
 	}
 	/**
-	 * Play one full round of blackJack. 
+	 * Play one full round of blackJack to the score of 21.
 	 */
 	@Override
 	public void playRound()
@@ -148,18 +143,35 @@ public class BlackjackGame extends CardGame
 		System.out.println("Finished");
 	}
 
+	/**
+	 * Not implemented in game
+	 */
+	@Override
+	public void shuffle()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	/**
+	 * Not implemented in game
+	 */
+	@Override
+	public BlackJackCard cardDeal()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/**
+	 * Not implemented in game
+	 */
 	@Override
 	public void dealCards(int _numberOfCards)
 	{
 	
 		
 	}
-
-	@Override
-	public BlackJackCard cardDeal()
-	{
-		
-		return null;
-	}
+	
 
 }

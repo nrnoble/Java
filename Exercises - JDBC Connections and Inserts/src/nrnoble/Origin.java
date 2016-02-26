@@ -15,7 +15,7 @@ import java.util.List;
 	    private static Origin sampleData = new Origin();
 	    
 	    
-	    // Pre-populate with state names
+	    // populate with state names
 		public Origin()
 		{
 			this.originList.add("Alabama");
@@ -73,7 +73,7 @@ import java.util.List;
 		 */
 		public static String getRandomOrigin()
 		{
-			int randIndex = dead.zone.Utilities.randInt(0,sampleData.originList.size()-1);
+			int randIndex = Utils.randInt(0,sampleData.originList.size()-1);
 			return sampleData.originList.get(randIndex);
 		}
 	}

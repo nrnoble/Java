@@ -8,7 +8,7 @@ import edu.greenriver.it.console.Console;
 /**
  * Helper class. Static method for console menus
  * @author Neal Neal
- * @date February 2016
+ * date February 2016
  */
 public class Menu
 {
@@ -83,8 +83,13 @@ public class Menu
 		
 		while (selection != '9')
 		{
+			//Prompt user to selection a menu option
 			selection = nrnoble.Menu.applicationMenu();
+			
+			// evoke selected menu option
 			Fruit fruit = new Fruit();
+			
+			// Insert a new record into to table
 			if (selection == '1')
 			{
 				System.out.println("Executing SQL query: \n" + fruit.sqlInsertQuery());
@@ -92,13 +97,14 @@ public class Menu
 				System.out.println();
 			}
 			
+			// View fruit table
 			if (selection =='2' )
 			{		
 				System.out.println("");	
 				sql.viewResultSet(Fruit.sqlSelectQuery());
 			}
 			
-			// Sort by type
+			// View fruit table sorted by type
 			if (selection =='3' )
 			{	
 				System.out.println("");	
@@ -106,21 +112,21 @@ public class Menu
 			}
 			
 			
-			// Sort by type Origin
+			// View fruit table sorted by type Origin
 			if (selection =='4' )
 			{
 				System.out.println("");	
 				sql.viewResultSet(Fruit.querySortBy("Origin","ASC"));
 			}
 			
-			// Sort by type weight
+			// View fruit table sorted by type weight
 			if (selection =='5' )
 			{
 				System.out.println("");	
 				sql.viewResultSet(Fruit.querySortBy("weight","ASC"));
 			}
 			
-			// sort by descending
+			// View fruit table sorted by descending
 			if (selection =='6' )
 			{
 				System.out.println("");	
@@ -128,14 +134,14 @@ public class Menu
 			}
 			
 			
-			// sort by ascending
+			// View fruit table sorted by ascending
 			if (selection =='7' )
 			{
 				System.out.println("");	
 				sql.viewResultSet(Fruit.querySortBy("type", "ASC"));
 			}
 			
-			// Delete all data in the table.
+			// Delete all data in the fruit table.
 			if (selection == '8')
 			{
 				Utils.deleteSampleData (sql.getConnection());

@@ -16,7 +16,7 @@ public class Fruit
 	{
 		this.fruitType = SampleFruitData.getRandomFruit();
 		this.origin = Origin.getRandomOrigin();
-		this.weight = dead.zone.Utilities.randInt(1,25);
+		this.weight = sample.code.nrnoble.Utilities.randInt(1,25);
 		this.discription = "Sample Description";
 	}
 

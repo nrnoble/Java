@@ -121,7 +121,7 @@ public class Utils
 	
 
 /**
- * Display SQL Table in console
+ * Display a basic text SQL Table in console
  * @param resultSet SQL table data
  * @throws SQLException Exception
  */
@@ -165,8 +165,6 @@ public class Utils
 
 		
 	}
-
-
 
 
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Helper class. Generates test data
+ * Generates assigment test data
  * @author Neal Noble
  *
  */
@@ -72,12 +72,12 @@ public class SampleFruitData
 
 
 	/**
-	 * 
+	 *  Generated fruit object with randomly selected data
 	 * @return a random fruit name
 	 */
 	public static String getRandomFruit()
 	{
-		int randIndex = dead.zone.Utilities.randInt(0,sampleData.fruitList.size()-1);
+		int randIndex = Utils.randInt(0,sampleData.fruitList.size()-1);
 		return sampleData.fruitList.get(randIndex);
 	}
 }

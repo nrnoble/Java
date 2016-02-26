@@ -31,8 +31,8 @@ public class BadNameException extends IOException
 
 	/**
 	 * see IOException
-	 * @param message
-	 * @param theBadName
+	 * @param message custom message
+	 * @param theBadName passed to super
 	 */
     public BadNameException(String message, String theBadName)
     {
@@ -40,7 +40,7 @@ public class BadNameException extends IOException
     }
     /**
      * see IOException
-     * @param theBadName
+     * @param theBadName passed to super
      */
     public BadNameException(String theBadName)
     {
@@ -52,7 +52,7 @@ public class BadNameException extends IOException
      * getUserInput() method in your main() method and add a try-catch block to 
      * handle any BadNameException that is thrown. Your catch block should print 
      * the bad name that was given back to the console.
-     * @return
+     * @return first and last name
      */
     @SuppressWarnings("resource")
 	public String getBadName()
@@ -83,7 +83,7 @@ public class BadNameException extends IOException
 
     /**
      * see IOException
-     * @param arg0
+     * @param arg0 internal
      */
 	public BadNameException(Throwable arg0)
 	{
@@ -92,8 +92,8 @@ public class BadNameException extends IOException
 	}
 	/**
 	 * see IOException
-	 * @param arg0
-	 * @param arg1
+	 * @param arg0 internal
+	 * @param arg1 internal
 	 */
 	public BadNameException(String arg0, Throwable arg1)
 	{

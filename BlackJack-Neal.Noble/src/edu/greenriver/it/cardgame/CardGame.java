@@ -50,7 +50,7 @@ public abstract class CardGame
 
 	/**
 	 *  Deals a single card from the deck to the user (notice the return type)
-	 * @return
+	 *  @return abstract file
 	 */
 	public abstract BlackJackCard cardDeal();
 	

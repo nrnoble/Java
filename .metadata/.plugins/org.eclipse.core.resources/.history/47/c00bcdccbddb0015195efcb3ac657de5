@@ -1,0 +1,129 @@
+package nrnoble;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+
+/**
+ * Start of application
+ * @author Neal Noble
+ *
+ */
+public class Main
+{
+	
+	
+	public Main()
+	{
+		// nothing to do here
+	}
+
+	/**
+	 * 
+	 * @param args not implemented
+	 * @throws ClassNotFoundException Exception
+	 * @throws SQLException Exception
+	 */
+	public static void main(String[] args) throws ClassNotFoundException, SQLException
+	{
+		
+		SQL sql = new SQL("nnoble_301","J$p1ter2","nnoble.greenrivertech.net");
+		
+		System.out.println("Connecting to nnoble.greenrivertech.net....");
+		JCDB jcdb = new JCDB("nnoble_301","J$p1ter2","nnoble.greenrivertech.net");
+		Connection dbConnection = sql.getConnection();
+		System.out.println("Successfully connected to nnoble.greenrivertech.net!");
+		
+		
+		MainMenu(sql.getConnection());
+
+		
+		
+		dbConnection.close();
+		System.out.println("Closing Connection....");
+		System.out.println("done....");
+	}
+	
+	private static MainMenu(SQL sql)
+	{
+		char selection = ' ';
+		
+		while (selection != '9')
+		{
+			selection = nrnoble.menu.applicationMenu();
+			Fruit fruit = new Fruit();
+			if (selection == '1')
+			{
+				
+				System.out.println("Executing SQL query: \n" + fruit.sqlInsertQuery());
+				
+				sql.Insert(fruit.sqlInsertQuery());
+				System.out.println();
+				
+			}
+			
+			if (selection =='2' )
+			{
+				
+				
+				System.out.println("");	
+				sql.viewResultSet(Fruit.sqlSelectQuery());
+			}
+			
+			
+			// Sort by type
+			if (selection =='3' )
+			{
+				
+				
+				System.out.println("");	
+				sql.viewResultSet(Fruit.querySortBy("type","ASC"));
+			}
+			
+			if (selection =='4' )
+			{
+				System.out.println("");	
+				sql.viewResultSet(Fruit.querySortBy("Origin","ASC"));
+			}
+			
+			if (selection =='5' )
+			{
+				System.out.println("");	
+				sql.viewResultSet(Fruit.querySortBy("weight","ASC"));
+			}
+			
+			// sort by descending
+			if (selection =='6' )
+			{
+				System.out.println("");	
+				sql.viewResultSet(Fruit.querySortBy("type", "DESC"));
+			}
+			
+			
+			// sort by ascending
+			if (selection =='7' )
+			{
+				System.out.println("");	
+				sql.viewResultSet(Fruit.querySortBy("type", "ASC"));
+			}
+			
+			
+			if (selection == '8')
+			{
+				Utils.deleteSampleData (sql.getConnection());
+			}
+		
+			else if (selection == '9')
+			{
+				break;
+			}
+		
+		}
+	}
+	
+}
+
+

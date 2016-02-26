@@ -20,7 +20,7 @@ public class BadAddressException extends Exception
 	static String defaultMessage = "Default error message";
 	/**
 	 * see Exception
-	 * @param message
+	 * @param message custom Error message
 	 */
 	public BadAddressException(String message)
 	{
@@ -36,10 +36,10 @@ public class BadAddressException extends Exception
 	
 	/**
 	 * see Exception
-	 * @param message
-	 * @param cause
-	 * @param enableSuppression
-	 * @param writableStackTrace
+	 * @param message custom Error message
+	 * @param cause custom throw
+	 * @param enableSuppression enable\disable suppression
+	 * @param writableStackTrace stacktrace
 	 */
 	public BadAddressException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)
 	{
@@ -49,8 +49,8 @@ public class BadAddressException extends Exception
 
 	/**
 	 * see Exception
-	 * @param message
-	 * @param cause
+	 * @param message custom Error message
+	 * @param cause Throwable
 	 */
 	public BadAddressException(String message, Throwable cause)
 	{
@@ -59,7 +59,7 @@ public class BadAddressException extends Exception
 	}
 	/**
 	 * see Exception
-	 * @param cause
+	 * @param cause Throwable cause
 	 */
 	public BadAddressException(Throwable cause)
 	{

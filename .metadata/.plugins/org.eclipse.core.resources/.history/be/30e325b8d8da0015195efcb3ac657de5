@@ -1,0 +1,20 @@
+import java.sql.SQLException;
+
+public class Main
+{
+
+	public Main()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) throws ClassNotFoundException, SQLException
+	{
+		System.out.println("Connecting....");
+		JCDB jcdb = new JCDB("nnoble1","J$p1ter2","nnoble.greenrivertech.net");
+		System.out.println("done....");
+		
+		jcdb.getConnection();
+	}
+
+}

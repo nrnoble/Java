@@ -1,0 +1,38 @@
+package nrnoble;
+
+import java.sql.ResultSet;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.ResultSetMetaData;
+
+public class SQL
+{
+	private String tableName = "";
+	private String query = ""; 
+	private JCDB jcdb = null;
+	private String user = "";
+	private String password = "";
+	private Connection connection;
+	private String dbName;
+	private ResultSet resultset;
+	private ResultSetMetaData metaData;
+	
+	
+	public SQL(String _user, String _password, String _host)
+	{
+		super();
+		//this.tableName = _tableName;
+		//this.dbName = _dbName;
+		this.jcdb = new JCDB (_user,_password,_host);
+		this.user = _user;
+		this.password = _password;
+	}
+
+
+	
+	public SQL()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

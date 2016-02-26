@@ -1,0 +1,107 @@
+package nrnoble;
+
+
+/**
+ * 
+ * @author Neal Neal Noble
+ *
+ */
+public class Fruit
+{
+	private String fruiType = "";
+	private String origin = "";
+	private Double weight;
+	private String discription = "";
+	public Fruit()
+	{
+		// nothing to do here
+	}
+
+	/**
+	 * 
+	 * @param _fruitType type of fruit
+	 * @param _origin where the fruit originated
+	 * @param _weight The total weight of the fruit
+	 * @param _discription additional information
+	 */
+	public Fruit(String _fruitType, String _origin, Double _weight,String _discription )
+	{
+		this.fruiType = _fruitType;
+		this.origin = _origin;
+		this.weight = _weight;
+		this.discription = _discription;
+	}
+
+	/**
+	 * 
+	 * @return type of fruit
+	 */
+	public String getFruitType()
+	{
+		return fruiType;
+	}
+
+	/**
+	 * 
+	 * @param fruiType type of fruit
+	 */
+	public void setFruitType(String fruiType)
+	{
+		this.fruiType = fruiType;
+	}
+
+	/**
+	 * 
+	 * @return where the fruit originated
+	 */
+	public String getOrigin()
+	{
+		return origin;
+	}
+
+	/**
+	 * 
+	 * @param origin where the fruit originated
+	 */
+	public void setOrigin(String origin)
+	{
+		this.origin = origin;
+	}
+
+	/**
+	 * 
+	 * @return weight The total weight of the fruit
+	 */
+	public Double getWeight()
+	{
+		return weight;
+	}
+
+	/**
+	 * 
+	 * @param weight weight The total weight of the fruit
+	 */
+	public void setWeight(Double weight)
+	{
+		this.weight = weight;
+	}
+
+	/**
+	 * 
+	 * @return additional information
+	 */
+	public String getDiscription()
+	{
+		return discription;
+	}
+    
+	/**
+	 * 
+	 * @param discription additional information
+	 */
+	public void setDiscription(String discription)
+	{
+		this.discription = discription;
+	}
+	
+}

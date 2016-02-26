@@ -66,11 +66,11 @@ public class CardDeck implements Iterable<BlackJackCard>
 	 *  verify that all cards are in a different position
 	 * when compared to original. Compare rank first; 1 in 13 
 	 * chance of being the same rank. If same rank, then compare 
-	 * suit. return false if both rank & suit are true.
+	 * suit. return false if both rank and suit are true.
 	 * This works well enough, but really is a hack.
 	 * ideally it should compare hashs. Save that work
 	 * for another day. Running out of time.
-	 * @return
+	 * @return if verification successful
 	 */
 	private boolean verify()
 	{
@@ -107,10 +107,7 @@ public class CardDeck implements Iterable<BlackJackCard>
 		topCardIndex = 0;
 	}
 	
-	/**
-	 * 
-	 * @returns the next card in deck.
-	 */
+
 	public BlackJackCard getNextCard()
 	{
 		BlackJackCard nextCard = this.deck.get(topCardIndex);

@@ -1,0 +1,11 @@
+package nrnoble;
+
+public class SQL
+{
+
+	public SQL()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

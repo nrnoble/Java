@@ -1,0 +1,62 @@
+package nnoble;
+
+public class Fruit
+{
+	private String fruiType = "";
+	private String origin = "";
+	private float weight = 0;
+	private String discription = "";
+	public Fruit()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	public Fruit(String _fruiType, String _origin, float _weight,String _discription )
+	{
+		this.fruiType = _fruiType;
+		this.origin = _origin;
+		this.weight = _weight;
+		this.discription = _discription;
+	}
+
+	public String getFruiType()
+	{
+		return fruiType;
+	}
+
+	public void setFruiType(String fruiType)
+	{
+		this.fruiType = fruiType;
+	}
+
+	public String getOrigin()
+	{
+		return origin;
+	}
+
+	public void setOrigin(String origin)
+	{
+		this.origin = origin;
+	}
+
+	public float getWeight()
+	{
+		return weight;
+	}
+
+	public void setWeight(float weight)
+	{
+		this.weight = weight;
+	}
+
+	public String getDiscription()
+	{
+		return discription;
+	}
+
+	public void setDiscription(String discription)
+	{
+		this.discription = discription;
+	}
+	
+}

@@ -1,0 +1,28 @@
+import edu.greenriver.it.console.Console;
+
+public class menu
+{
+
+	public menu()
+	{
+		
+	}
+
+	
+	/**
+	 * Returns the first character from an input string
+	 * @param _prompt text displayed to the user.
+	 * @param _default value if only {return} is used
+	 * @return a single char value
+	 */
+	public static char myGetKeyHack(String _prompt, char _default)
+	{
+		String inputString = Console.getString(_prompt);
+		if (inputString.isEmpty())
+		{
+			return _default;
+		}
+		
+		return inputString.charAt(0);
+	}
+}

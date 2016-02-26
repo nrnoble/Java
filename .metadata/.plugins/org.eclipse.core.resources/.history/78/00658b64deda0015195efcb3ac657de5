@@ -1,0 +1,48 @@
+package nrnoble;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Main
+{
+
+	public Main()
+	{
+		// nothing to do here
+	}
+
+	public static void main(String[] args) throws ClassNotFoundException, SQLException
+	{
+		System.out.println("Connecting....");
+		JCDB jcdb = new JCDB("test1","J$p1ter2","nnoble.greenrivertech.net");
+		System.out.println("done....");
+		
+// get a DB connection
+		Connection dbConnection = jcdb.getConnection();
+		System.out.println("Connected!");
+		
+		//create a statement and query
+		Statement stmt = dbConnection.createStatement();
+		String query = "SELECT title, length, release_year FROM nnoble_sakila.film";
+		
+		//get our results
+		ResultSet results = stmt.executeQuery(query);
+		
+		//print our results
+		while (results.next()) //do we have another record? ok! move to it!
+		{
+			//retrieve the field data for the current record
+			String title = results.getString("title");
+			double length = results.getDouble("length");
+			int year = results.getInt("release_year");
+			
+			System.out.println(title + " (" + year + ") - " + length + " minutes");
+		}
+		
+		
+		char userSelection = applicationMenu();
+	}
+	}
+
+

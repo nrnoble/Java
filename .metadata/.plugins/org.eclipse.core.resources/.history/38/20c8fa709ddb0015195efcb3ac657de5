@@ -1,0 +1,87 @@
+package nrnoble;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+
+/**
+ * Start of application
+ * @author Neal Noble
+ *
+ */
+public class Main
+{
+ 
+	public Main()
+	{
+		// nothing to do here
+	}
+
+	/**
+	 * 
+	 * @param args not implemented
+	 * @throws ClassNotFoundException Exception
+	 * @throws SQLException Exception
+	 */
+	public static void main(String[] args) throws ClassNotFoundException, SQLException
+	{
+		System.out.println("Connecting to nnoble.greenrivertech.net....");
+		JCDB jcdb = new JCDB("nnoble_301","J$p1ter2","nnoble.greenrivertech.net");
+		Connection dbConnection = jcdb.getConnection();
+		System.out.println("Successfully connected to nnoble.greenrivertech.net!");
+		
+		// Create a random Fruit object.
+		
+		
+		// Insert fruit into remote database
+		
+		char selection = nrnoble.menu.applicationMenu();
+		while (selection != '3')
+		{
+			selection = nrnoble.menu.applicationMenu();
+			if (selection == '1')
+			{
+				Fruit fruit = new Fruit();
+				System.out.println("Executing SQL query: \n" + fruit.sqlInsertQuery());
+				nrnoble.Utilities.insertFruit(dbConnection,fruit); 
+				System.out.println("\r");
+			}
+			else if (selection == '2')
+			{
+				Fruit fruit = new Fruit();
+				System.out.println("Executing SQL query: " + fruit.sqlSelectQuery());
+				ResultSet resultSet = nrnoble.Utilities.viewFruit(dbConnection, new Fruit()); 
+				ResultSetMetaData metadata = resultSet.getMetaData();
+				int columCount = metadata.getColumnCount();
+				for (int idx=1; idx <= columCount; idx++)
+				{
+					String ColumnName = nrnoble.Utilities.padRight(metadata.getColumnName(idx),15);
+					System.out.print(ColumnName);
+				}
+				System.out.println("\r");
+				while(resultSet.next() != false)
+				{
+					resultSet.getMetaData();
+					
+				}
+				//System.out.println("Query Successful");
+			}
+		
+		
+		}
+		// char userSelection =  nrnoble.menu.applicationMenu();
+		// List fruitData = nrnoble.menu.enterDataMenu();
+		
+		// System.out.println(SampleFruitData.getRandomFruit());;
+		// System.out.println(Origin.getRandomOrigin());;
+		
+		
+		dbConnection.close();
+		System.out.println("Closing Connection....");
+		System.out.println("done....");
+	}
+}
+
+

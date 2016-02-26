@@ -1,0 +1,34 @@
+1456300336322	Rename type 'DriverManager'
+1456304571752	Move file
+1456304579019	Move file
+1456305930579	Delete element
+1456308184919	Move compilation unit
+1456308195320	Move compilation units
+1456308443319	Copy compilation unit
+1456308497027	Delete element
+1456346483980	Infer generic type arguments
+1456347554739	Move compilation unit
+1456347564439	Delete element
+1456347767804	Rename local variable '_fruiType'
+1456380963043	Rename field 'fruiType'
+1456381045168	Rename type 'SampleFruitdData'
+1456381234662	Rename local variable 'RANDOMHIGH'
+1456389968761	Rename local variable 's'
+1456390002882	Rename local variable 'n'
+1456395574912	Rename local variable 'connnectToRemoteDB'
+1456397116236	Rename field 'DELETEDATEQUERY'
+1456399382880	Rename local variable 'host'
+1456399390398	Rename local variable 'password'
+1456399420014	Rename local variable 'user'
+1456399428028	Rename local variable 'tableName'
+1456400124856	Rename local variable 'COLUMWIDTH'
+1456400515281	Rename field 'connection'
+1456404731986	Rename type 'menu'
+1456404841784	Rename method 'mainMenu'
+1456405037098	Rename method 'appMenu'
+1456405222533	Move compilation unit
+1456405226822	Move compilation unit
+1456405283556	Move compilation unit
+1456405828941	Rename method 'MainMenu'
+1456406746067	Rename local variable 's'
+1456406786833	Rename local variable 'n'

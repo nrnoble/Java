@@ -36,7 +36,7 @@ public class DivideByZeroException extends RuntimeException
 	
 	/**
 	 *  Not Implemented
-	 * @param cause
+	 * @param cause Not Implemented
 	 */
 	public DivideByZeroException(Throwable cause)
 	{
@@ -49,8 +49,8 @@ public class DivideByZeroException extends RuntimeException
 	
 	/**
 	 * Not Implemented
-	 * @param message
-	 * @param cause
+	 * @param message Not Implemented
+	 * @param cause Not Implemented
 	 */
 	public DivideByZeroException(String message, Throwable cause)
 	{
@@ -60,10 +60,10 @@ public class DivideByZeroException extends RuntimeException
 
 	/**
 	 * Not Implemented
-	 * @param message
-	 * @param cause
-	 * @param enableSuppression
-	 * @param writableStackTrace
+	 * @param message Not Implemented
+	 * @param cause Not Implemented
+	 * @param enableSuppression  Not Implemented
+	 * @param writableStackTrace Not Implemented
 	 */
 	public DivideByZeroException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)
 	{

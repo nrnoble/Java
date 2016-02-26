@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;edu.greenriver.it.console&apos; to &apos;Exercises - JDBC Connections and Inserts/src&apos;&#x0D;&#x0A;- Original project: &apos;BlackJack-Neal.Noble&apos;&#x0D;&#x0A;- Destination element: &apos;Exercises - JDBC Connections and Inserts/src&apos;&#x0D;&#x0A;- Original element: &apos;BlackJack-Neal.Noble/src/edu.greenriver.it.console&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move package" destination="=Exercises - JDBC Connections and Inserts/src" element1="/src&lt;edu.greenriver.it.console" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1456307379533" version="1.0"/>
+</session>

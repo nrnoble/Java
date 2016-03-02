@@ -1,0 +1,20 @@
+package nrnoble;
+
+public class Main
+{
+
+	public Main()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args)
+	{
+		// Test Driver handles SQL connection
+		// Test driver extends from SaleDataLayer object
+		TestDriver testDriver = new TestDriver();
+	
+		
+	}
+
+}

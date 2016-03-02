@@ -1,0 +1,23 @@
+package nrnoble;
+
+import java.sql.SQLException;
+
+public class Main
+{
+
+	public Main()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) throws ClassNotFoundException, SQLException
+	{
+	
+		TestDriver testDriver = new TestDriver();
+		//testDriver.testCreateSale();
+		
+		System.out.println("Done...");
+
+	}
+
+}

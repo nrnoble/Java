@@ -1,0 +1,11 @@
+package nrnoble;
+
+public class JDBD
+{
+
+	public JDBD()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

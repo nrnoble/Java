@@ -1,0 +1,11 @@
+package nrnoble;
+
+public class SaleDataLayer
+{
+
+	public SaleDataLayer()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

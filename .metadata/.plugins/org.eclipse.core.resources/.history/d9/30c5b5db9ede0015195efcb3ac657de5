@@ -1,0 +1,56 @@
+package nrnoble;
+
+import java.sql.Date;
+
+/*
+•	createSale(first_name, last_name, sale_date)
+o		Adds a new sale record
+•	createSaleItem(sale_id, item_id, quantity)
+o		Adds a new sale_item record
+•	getSalesByDate(sales_date)
+o		Returns all sale records for the given date
+•	updateQuantity(sale_item_id, quantity)
+o		Updates the quantity for the sale_item given
+•	deleteSale(sale_id)
+o		Deletes all sale_item records AND sale records associated with the given sale_id
+
+
+*/
+
+
+public class SaleDataLayer extends SQL
+{
+
+	public SaleDataLayer()
+	{
+		super();
+	}
+	
+	public void createSale(String _first_name, String _last_name, Date _sale_date)
+	{
+		
+	}
+	
+	public void createSaleItem(int _sale_id, int _item_id, int _quantity)
+	{
+		
+	}
+	
+	public Date getSalesByDate(Date _sales_date)
+	{
+		
+		return new Date(0);
+		
+	}
+	
+	public boolean updateQuantity(int _sale_item_id, int _quantity)
+	{
+		return true;
+	}
+
+	
+	public boolean deleteSale(int _sale_id)
+	{
+		return true;
+	}
+}

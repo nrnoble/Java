@@ -1,0 +1,11 @@
+package nrnoble;
+
+public class ResumeManager
+{
+
+	public ResumeManager()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

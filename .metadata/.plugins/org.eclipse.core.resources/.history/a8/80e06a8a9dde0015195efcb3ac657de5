@@ -1,0 +1,19 @@
+package nrnoble;
+
+public class Main
+{
+
+	public Main()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args)
+	{
+		SaleDataLayer sales = new SaleDataLayer();
+		
+		System.out.println("Done...");
+
+	}
+
+}

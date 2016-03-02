@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;connection&apos; in &apos;nrnoble.JCDB&apos; to &apos;sqlConnection&apos;&#x0D;&#x0A;- Original project: &apos;Resume Manager&apos;&#x0D;&#x0A;- Original element: &apos;nrnoble.JCDB.connection&apos;&#x0D;&#x0A;- Renamed element: &apos;nrnoble.JCDB.sqlConnection&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;connection&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;nrnoble{JCDB.java[JCDB^connection" name="sqlConnection" references="true" setter="false" stamp="1456881187731" textual="false" version="1.0"/>
+</session>

@@ -2,22 +2,39 @@ package nrnoble;
 
 import java.sql.SQLException;
 
+
+/**
+ * Start of Resume manager
+ * @author Neal
+ *
+ */
 public class Main
 {
 
 	public Main()
 	{
-		// TODO Auto-generated constructor stub
+		// Nothing to do here
 	}
 
+	/**
+	 * 
+	 * @param args not implemented
+	 * @throws ClassNotFoundException exception
+	 * @throws SQLException exception
+	 */
 	public static void main(String[] args) throws ClassNotFoundException, SQLException
 	{
 		// Test Driver handles SQL connection
 		// Test driver extends from SaleDataLayer object
-		TestDriver testDriver = new TestDriver();
-		testDriver.testConnection(testDriver.sqlConnection);
+		// TestDriver testDriver = new TestDriver();
 		
-		testDriver.Close();
+		ResumeManager resumeManager = new ResumeManager();
+		
+		Menu.mainMenu(resumeManager);
+		
+		
+		
+		resumeManager.Close();
 	}
 
 }

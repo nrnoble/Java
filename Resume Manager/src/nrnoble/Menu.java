@@ -36,9 +36,33 @@ public class Menu
 		return inputString.charAt(0);
 	}
 	
-	public static String inputDefaultData(String _prompt)
+	public static boolean validateInput(String _userData)
 	{
-		String inputString = Console.getString(_prompt + ": ");
+		boolean validationCheck = true;
+		if (_userData == "")
+			validationCheck = false; 
+		if (_userData.length()<=1)
+			validationCheck = false;
+		if (_userData.contains("'")== true)
+			validationCheck = false;
+		
+		return validationCheck;
+	}
+	
+	
+	
+	public static String consoleInput(String _prompt)
+	{
+		String inputString = "";
+		boolean valid = false;
+		while (valid == false)
+		{
+		    inputString = Console.getString(_prompt + ": ");
+			valid = validateInput(inputString);
+			
+		}
+		
+		
 		return inputString;
 	}
 	
@@ -131,15 +155,11 @@ public class Menu
 				
 				
 
-//				 title 		= inputDefaultData(" * Enter a resume title", "Resume2");			
-//				 name 		= inputDefaultData(" * Enter your name", "Neal Noble");	
-//				 profile 	= inputDefaultData(" * Enter a profile", "I am a hard worker who is interesting in a technical position as a software developer");	
-//				 email 		= inputDefaultData(" * Enter an email address", "dev@developer.com");	
-				
-				title 		= inputDefaultData(" * Enter a resume title");			
-				 name 		= inputDefaultData(" * Enter your name");	
-				 profile 	= inputDefaultData(" * Enter a profile");	
-				 email 		= inputDefaultData(" * Enter an email address");	
+ 				
+				 title 		= consoleInput(" * Enter a resume title");
+				 name 		= consoleInput(" * Enter your name");	
+				 profile 	= consoleInput(" * Enter a profile");	
+				 email 		= consoleInput(" * Enter an email address");	
 				
 				
 				
@@ -159,8 +179,8 @@ public class Menu
 //					skill 		= inputDefaultData(" * Skill", "SQL");	
 //					description = inputDefaultData(" * Description","Creating and Managing SQL databases");
 
-					skill 		= inputDefaultData(" * Skill");	
-					description = inputDefaultData(" * Description");
+					skill 		= consoleInput(" * Skill");	
+					description = consoleInput(" * Description");
 
 					
 					System.out.println();
@@ -190,25 +210,25 @@ public class Menu
 //					 endDate 		= inputDefaultData(" * End date","2005-05-23");	
 //					 position 		= inputDefaultData(" * position","SQL developer");	
 					
-					 employer 		= inputDefaultData(" * Employer");	
+					 employer 		= consoleInput(" * Employer");	
 					
-					 startDate 		= inputDefaultData(" * Start Date");	
+					 startDate 		= consoleInput(" * Start Date");	
 					 boolean validDate = Utils.isValidDate(startDate); 
 					 while (validDate != true)
 					 {
-						 startDate 		= inputDefaultData(" * Start Date");
+						 startDate 		= consoleInput(" * Start Date");
 						 validDate 		= Utils.isValidDate(startDate); 
 					 }
 					 
-					 endDate 		= inputDefaultData(" * End date");	
+					 endDate 		= consoleInput(" * End date");	
 					 validDate = Utils.isValidDate(endDate);
 					 
 					 while (!validDate)
 					 {
-						 endDate 		= inputDefaultData(" * End date");	
+						 endDate 		= consoleInput(" * End date");	
 						 validDate = Utils.isValidDate(endDate);
 					 }
-					 position 		= inputDefaultData(" * position");	
+					 position 		= consoleInput(" * position");	
 					
 					 System.out.println();
 					 

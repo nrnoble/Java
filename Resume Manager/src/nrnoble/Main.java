@@ -28,12 +28,18 @@ public class Main
 		// Test driver extends from SaleDataLayer object
 		// TestDriver testDriver = new TestDriver();
 		
-		ResumeManager resumeManager = new ResumeManager();
 		
+		ResumeManager resumeManager = new ResumeManager(ConnectionSettings.USERNAME, 
+														ConnectionSettings.PASSWORD, 
+														ConnectionSettings.SQLSERVERNAME);
+		System.out.println("Connected to database...");
+		System.out.println();
 		Menu.mainMenu(resumeManager);
 		
-		
-		
+		System.out.println();
+		System.out.println();
+		System.out.println("Closing database connection");
+		System.out.println("Exiting Resume Manager");
 		resumeManager.Close();
 	}
 

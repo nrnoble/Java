@@ -5,13 +5,15 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Utils
 {
-	private static int COLUMWIDTH = 20;
-	private static String DELETEDATAQUERY = "DELETE FROM nnoble_301.fruit WHERE 1";
-	public static String SELECTQUERY = "SELECT `type`, `origin`, `weight`, `description` \rFROM nnoble_301.fruit";
+	private static int COLUMWIDTH = 25;
+	private static String DELETEDATAQUERY = "";
+	public static String SELECTQUERY = "";
 	public Utils()
 	{
 		// TODO Auto-generated constructor stub
@@ -31,6 +33,17 @@ public class Utils
 	}
 	
 	
+	public static String underScoreColumnHeading (int _strLength)
+	{
+		String underScoreString = "";
+		for (int idx = 0;  idx < _strLength; idx++)
+		{
+			underScoreString += "-";
+		}	
+		return  underScoreString; 
+	}
+	
+	
 	/**
 	 * 
 	 * @param str string of characters
@@ -43,6 +56,18 @@ public class Utils
 	}
 
 	
+	public static boolean isValidDate(String inDate) {
+	    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	    dateFormat.setLenient(false);
+	    try {
+	      dateFormat.parse(inDate.trim());
+	    } catch (ParseException pe) {
+	      return false;
+	    }
+	    return true;
+	  }
+	
+	
 	/**
 	 * 
 	 * @param str string of characters
@@ -53,7 +78,8 @@ public class Utils
 	    return String.format("%1$" + padding + "s", str);  
 	}
 
-	 private static int randTestNum(int low, int high)
+	 @SuppressWarnings("unused")
+	private static int randTestNum(int low, int high)
 	 {
 		  int randNum = 0;
 	      while(randNum == 0)
@@ -76,22 +102,7 @@ public class Utils
 	}
 	 
 
-	/**
-	 *  
-	 * @param _connnectToRemoteDB connection to DB
-	 * @return status of insert query
-	 * @throws SQLException exception
-	 * @return ResultSet
-	 */
-	public static ResultSet viewFruit(Connection _connnectToRemoteDB) throws SQLException
-	{
-		//create a statement and query
-		Statement stmt = _connnectToRemoteDB.createStatement();
-		ResultSet resultSet = stmt.executeQuery(SELECTQUERY);	
-		displaySQLTable(resultSet);
-		return resultSet;
-	}
-	
+
 	/**
 	 *  
 	 * @param connnectToRemoteDB connection to DB
@@ -150,9 +161,6 @@ public class Utils
 					System.out.println("");
 					
 				}
-
 		
 	}
-
-
 }

@@ -5,12 +5,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Properties;
+;
 
 
 /**
@@ -31,8 +28,8 @@ public class JCDB
 	 * @param username SQL User Name
 	 * @param password SQL Password
 	 * @param host SQL 
-	 * @throws SQLException 
-	 * @throws ClassNotFoundException 
+	 * @throws SQLException Exception
+	 * @throws ClassNotFoundException Exception
 	 */
 	public JCDB(String username, String password, String host) throws SQLException, ClassNotFoundException
 	{
@@ -40,22 +37,30 @@ public class JCDB
 		this.password = password;
 		this.host = host;
 		
+		this.establishConnection();
+		
+		
+	}
+
+	public void establishConnection() throws  SQLException, ClassNotFoundException
+	{
+		
 		Properties props = new Properties();
 
 		// credentials
-		props.put("user", username);
-		props.put("password", password);
+		props.put("user", this.username);
+		props.put("password", this.password);
 
 		// reference the Connector/J jar file
 		Class.forName("com.mysql.jdbc.Driver");
 
 		// get a connection using a "connection string"
 		this.sqlConnection = DriverManager.getConnection(
-				"jdbc:mysql://" + host + ":3306/", props);
-		
-		
+				"jdbc:mysql://" + this.host + ":3306/", props);
 	}
-
+	
+	
+	
 	/**
 	 * Gets a SQL connection
 	 * @return SQL connection to database

@@ -1,8 +1,7 @@
 package nrnoble;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import edu.greenriver.it.console.Console;
 
@@ -37,6 +36,11 @@ public class Menu
 		return inputString.charAt(0);
 	}
 	
+	public static String inputDefaultData(String _prompt)
+	{
+		String inputString = Console.getString(_prompt + ": ");
+		return inputString;
+	}
 	
 	public static String inputDefaultData(String _prompt, String _default)
 	{
@@ -67,9 +71,9 @@ public class Menu
 			   menuSelection != '8' &&
 			   menuSelection != '9')
 		{
-			System.out.println("\r");
+			//System.out.println("\r");
 			System.out.println("1. Build a new resume.");
-			System.out.println("2. View all resumes");
+			System.out.println("2. List Resumes");
 //			System.out.println("3. Sort by Type");
 //			System.out.println("4. Sort by Origin");
 //			System.out.println("5. Sort by Weight");
@@ -77,72 +81,145 @@ public class Menu
 //			System.out.println("7. Sort ascending order");
 //			System.out.println("8. Delete all sample data from table");
 			System.out.println("3. Exit");
-			menuSelection = myGetKeyHack ("Enter (default 1)", '1');		
+		 	           System.out.println("------------------------");
+			menuSelection = myGetKeyHack ("   Choice (default 1)", '1');		
 		}
 		
 		return menuSelection;
 	}
-	
 
-	
-	
 	
 	
 /**
  *  main application loop. 
- * @param sql SQL helper  
- * @throws SQLException Exception
+ * @param resumeManager ResumeManager object
+ * @throws SQLException Exception Expection
+ * @throws ClassNotFoundException Expection
  */
-	public static void mainMenu(ResumeManager resumeManager) throws SQLException
+	public static void mainMenu(ResumeManager resumeManager) throws SQLException, ClassNotFoundException
 	{
 		// menu selection 
-		char selection = ' ';
+		char selection 		= ' ';
+		Character addSkill 	= 'y';
 		
+		String title 		= "";			
+		String name 		= "";	
+		String profile 		= "";	
+		String email 		= "";	
+		
+		
+		String skill		= "";
+		String description 	= "";
+		
+		String employer 	= "";	
+		String startDate 	= "";	
+		String endDate 		= "";	
+		String position 	= "";	
+
 		
 		while (selection != '3')
 		{
+			System.out.println("*** RESUME MANAGER 2016 ***\r");
 			//Prompt user to selection a menu option
 			selection = nrnoble.Menu.applicationMenu();
 			
-			// evoke selected menu option
-			//Fruit fruit = new Fruit();
-			
-//			Enter a resume title: My Resume
-//			Enter your name: Jose Garcia
-//			Enter a profile: I am a hard worker who is interesting in a technical position as a software tester.
-//			Enter an email address: jg2001@gmail.com
 			if (selection == '1')
 			{
+				System.out.println();
+				System.out.println(" Add Resume");
+				System.out.println("--------------------");
 				
 				
-				String title 	= inputDefaultData("Enter a resume title", "Resume2");			
-				String name 	= inputDefaultData("Enter your name", "Neal Noble");	
-				String profile 	= inputDefaultData("Enter a profile", "I am a hard worker who is interesting in a technical position as a software developer");	
-				String email 	= inputDefaultData("Enter an email address", "dev@developer.com");	
+
+//				 title 		= inputDefaultData(" * Enter a resume title", "Resume2");			
+//				 name 		= inputDefaultData(" * Enter your name", "Neal Noble");	
+//				 profile 	= inputDefaultData(" * Enter a profile", "I am a hard worker who is interesting in a technical position as a software developer");	
+//				 email 		= inputDefaultData(" * Enter an email address", "dev@developer.com");	
+				
+				title 		= inputDefaultData(" * Enter a resume title");			
+				 name 		= inputDefaultData(" * Enter your name");	
+				 profile 	= inputDefaultData(" * Enter a profile");	
+				 email 		= inputDefaultData(" * Enter an email address");	
+				
+				
 				
 				// create new resume in DB here
+				resumeManager.addResume(title, name, profile, email);
+				int pkey = resumeManager.getLastPkey();
 				
-				Character addSkill = 'y';
+				System.out.println();
+			
+				System.out.println();
+				System.out.println(" Add Resume Skills");
+				System.out.println("--------------------");
+				
+				// Add resume skills
 				while (addSkill == 'y')
 				{
+//					skill 		= inputDefaultData(" * Skill", "SQL");	
+//					description = inputDefaultData(" * Description","Creating and Managing SQL databases");
 
-					String skill 		= inputDefaultData("Skill", "SQL");	
-					String description 	= inputDefaultData("Description","Creating and Managing SQL databases");	
-					addSkill = myGetKeyHack ("Add a new skill (default Yes)", 'y');
+					skill 		= inputDefaultData(" * Skill");	
+					description = inputDefaultData(" * Description");
+
+					
+					System.out.println();
+					
+					resumeManager.addResume_skill(pkey, skill, title, description);		
+					
+					addSkill 	= myGetKeyHack ("Add a new skill (default Yes)", 'y');
+				
 				}
 				
+		
+				
+				
+				
+				System.out.println();
+				System.out.println("---------------- End of adding skills ----------------");
+				System.out.println();
+				System.out.println(" Add Employment Experience");
+				System.out.println("----------------------------");
+				
+				// Add Resume Experience
 				Character addEmployment = 'y';
 				while (addEmployment == 'y')
 				{
-
-					String employer 	= inputDefaultData("Employer", "Skynet");	
-					String startDate 	= inputDefaultData("Start Date","2001-03-19");	
-					String endDate 		= inputDefaultData("End date","2005-05-23");	
-					String position 	= inputDefaultData("position","SQL developer");	
-					addEmployment 		= myGetKeyHack ("Add more employment history (default Yes)", 'y');
+//					 employer 		= inputDefaultData(" * Employer", "Skynet");	
+//					 startDate 		= inputDefaultData(" * Start Date","2001-03-19");	
+//					 endDate 		= inputDefaultData(" * End date","2005-05-23");	
+//					 position 		= inputDefaultData(" * position","SQL developer");	
+					
+					 employer 		= inputDefaultData(" * Employer");	
+					
+					 startDate 		= inputDefaultData(" * Start Date");	
+					 boolean validDate = Utils.isValidDate(startDate); 
+					 while (validDate != true)
+					 {
+						 startDate 		= inputDefaultData(" * Start Date");
+						 validDate 		= Utils.isValidDate(startDate); 
+					 }
+					 
+					 endDate 		= inputDefaultData(" * End date");	
+					 validDate = Utils.isValidDate(endDate);
+					 
+					 while (!validDate)
+					 {
+						 endDate 		= inputDefaultData(" * End date");	
+						 validDate = Utils.isValidDate(endDate);
+					 }
+					 position 		= inputDefaultData(" * position");	
+					
+					 System.out.println();
+					 
+					 resumeManager.addResume_experience(pkey, employer, title, startDate, endDate, position);
+					 addEmployment 	= myGetKeyHack ("Add more employment history (default Yes)", 'y');
 				}
-				
-				
+
+				System.out.println();
+				System.out.println("---------------- End of Employment History ----------------");
+				System.out.println();
+				System.out.println();
 				
 			}
 			
@@ -150,33 +227,51 @@ public class Menu
 			if (selection == '2')
 			{
 				
+
+					resumeManager.showResumeList();
+					
+				
+				
+				int selectedOption = 2;
+				while (selectedOption != 0)
+				{
+					System.out.println();
+					System.out.println("Menu: Resume Details"); 
+					System.out.println("----------------------------"); 
+					System.out.println("    Select a resume # ");
+					System.out.println(" 2. Show List of resumes ");
+					System.out.println(" 0. Return to previous menu");
+					System.out.println("----------------------------"); 
+					selectedOption = Console.getInt("    Choice");
+					
+					 
+					if (selectedOption == 0)
+					{
+						 break;
+					}
+					else if (selectedOption == 2)
+					{
+						resumeManager.showResumeList();
+						continue;
+					}
+					else
+					{
+						resumeManager.showResumeDetails(selectedOption);
+					}
+
+				}
+				
 			}
 			
+//			
+//			if (selection == 32)
+//			{
+//				break;
+//			}
+//			
 			
 					
 		}
 	}
-	
-
-	
-	/**
-	 * Console data entry entry menu
-	 * @return Fruit object
-	 */
-//	private static Fruit enterDataMenu()
-//	{
-//		
-//		String fruitType = Console.getString("Enter fruit type: ");	
-//		String fruitOrigin = Console.getString("Enter origin: ");
-//		double fruitWeight = Console.getDouble("Enter weight: ");
-//
-//		String fruitDescription = Console.getString("Enter description: ");
-//		Fruit fruit = new Fruit(fruitType, fruitOrigin, fruitWeight, fruitDescription);
-//		
-//		return fruit;
-//	}
-
-
-	
 	
 }

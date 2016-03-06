@@ -1,0 +1,159 @@
+package nrnoble;
+
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+
+/**
+ * Handles SQL all queries for the Resume Manager application
+ * @author Neal Noble
+ *
+ */
+public class ResumeManager extends SQL
+{
+	private ResultSet resultSet = null;
+	
+	public ResumeManager() throws ClassNotFoundException, SQLException
+	{
+		super("nnoble_301", "J$p1ter2", "nnoble.greenrivertech.net");
+		String sql = "SELECT * FROM nnoble_301";
+	}
+	
+	/**
+	 * Adds Resume to database
+	 * @param _title of resume
+	 * @param _name Name of applicant
+	 * @param _profile Applicant profile information
+	 * @param _email Applicant email
+	 * @throws SQLException Exception
+	 */
+	public void addResume(String _title, String _name, String _profile, String _email) throws SQLException
+	{
+		// INSERT INTO `nnoble_301`.`resume` (`title`, `name`, `profile`, `email`) 
+		// VALUES ('Java Developer', 'Cal Orson', 'Java Developer LEVEL 2', 'corson@email.com');
+		
+		String query = "INSERT INTO `nnoble_301`.`resume` (`title`, `name`, `profile`, `email`)  VALUES ('" + _title + "', '" + _name + "', '" + _profile + "', '" + _email + "');";
+		
+		//System.out.println(query);
+		this.insert(query);
+
+	}
+
+	
+	public int getLastPkey() throws SQLException
+	{
+		String query = "SELECT `pkey` FROM `nnoble_301`.`resume` ORDER BY pkey DESC LIMIT 1;";
+		ResultSet resultset = this.excuteQuery(query);
+		resultset.next();
+		int lastPkey = Integer.parseInt(resultset.getString(1));
+		//System.out.println("lastPkey: " + lastPkey);
+		return  lastPkey;
+	}
+	
+	/**
+	 * Add resume Job to databse
+	 * @param _job Applicant Job
+	 * @param _resume_title Applicant resume title
+	 * @param _year_started job start state date
+	 * @param _year_ended Job end date
+	 * @param _position Title of position
+	 * @param _fkey primary key
+	 * @throws SQLException Exception
+	 */
+	public void addResume_experience(int _fkey, String _job, String _resume_title, String _year_started, String _year_ended, String _position) throws SQLException
+	{
+		// INSERT INTO `nnoble_301`.`resume_experience` (`job`, `resume_title`, `year_started`, `year_ended`, `position`) 
+		// VALUES ('XYZ', 'Java Developer', '2011-03-03', '2016-07-08', 'Java Level II');
+		//Integer.parseInt("1234");
+		String query = "INSERT INTO `nnoble_301`.`resume_experience` (`fkey`,`job`, `resume_title`, `year_started`, `year_ended`, `position`) VALUES ('" + _fkey + "', '" + _job  + "', '" + _resume_title + "', '" + _year_started + "', '" + _year_ended + "', '" + _position + "');";
+		//System.out.println(query);
+		this.insert(query);
+	}
+	
+	/**
+	 *  Add resume skill to database
+	 * @param _fkey primary key
+	 * @param _skill Name of skill
+	 * @param _resume_title Resume title
+	 * @param _description skill discription
+	 * @throws SQLException Exception
+	 */
+	public void addResume_skill(int _fkey, String _skill, String _resume_title, String _description) throws SQLException
+	{
+
+		//INSERT INTO `nnoble_301`.`resume_skill` (`skill`, `resume_title`, `description`) VALUES ('SQL', 'resume Title', 'skill Description');
+		String query = "INSERT INTO `nnoble_301`.`resume_skill` (`fkey`,`skill`, `resume_title`, `description`) VALUES ('" + _fkey + "', '" + _skill + "', '" + _resume_title + "', '" + _description + "')";
+		System.out.println(query);
+		this.insert(query);
+	}
+	
+	
+	public void showResumeList() throws SQLException
+	{
+	
+		String query  = "SELECT `pkey`,`title`,`name`,`email` FROM `nnoble_301`.`resume`";
+		ResultSet resultset = this.excuteQuery(query);
+		this.displaySQLTable(resultset, 10,25);
+		
+	}
+	
+	public void showResumeDetails(int pkey) throws SQLException
+	{
+		
+		//ResultSetMetaData metadata = this.resultSet.getMetaData();
+		//int columnCount = metadata.getColumnCount();
+		
+//		int pkeyIndex = resultSet.findColumn("pkey");
+//		int titleIndex = resultSet.findColumn("title");
+//		String  resumeTitle = "";
+//		while(this.resultSet.next())
+//		{
+//			String data = resultSet.getString(pkeyIndex);
+//			if (data == pkey)
+//			{
+//				resumeTitle = resultSet.getString(titleIndex);
+//				break;
+//			}
+//				
+//		}
+//		
+//		
+//		String query = "SELECT * FROM `nnoble_301`.`resume_experience` WHERE 'resume_title' = '" + resumeTitle + "'";
+//		ResultSet set = this.excuteQuery(query);
+//		this.displaySQLTable(set, 7, 25);
+		
+		 //SELECT * FROM `nnoble_301`.`resume` WHERE `pkey` = 7
+		
+		
+		 String query  = "SELECT `title`, `name`, `email`, `profile` FROM `nnoble_301`.`resume` WHERE `pkey` = '" + pkey +"'";
+		 query  = "SELECT `title`, `name`, `email`, `profile` FROM `nnoble_301`.`resume` WHERE `pkey` = '" + pkey +"'";
+		 //System.out.println(query);
+		 ResultSet resultSet = this.excuteQuery(query);
+		 this.displaySQLTable(resultSet, 7, 35);
+		 System.out.println();
+		 System.out.println();
+		
+		  query  = "SELECT  `position`, `year_started`, `year_ended` FROM `nnoble_301`.`resume_experience` WHERE `fkey` = '" + pkey +"'";
+		 //System.out.println(query);
+		  resultSet = this.excuteQuery(query);
+		 this.displaySQLTable(resultSet, 7, 20);
+		 System.out.println();
+		 System.out.println();
+		 
+		  query  = "SELECT `skill` FROM `nnoble_301`.`resume_skill` WHERE `fkey` = '" + pkey +"'";
+		 //System.out.println(query);
+		  resultSet = this.excuteQuery(query);
+		 this.displaySQLTable(resultSet, 7, 20);
+		 
+		
+		
+		
+		
+//		query = "SELECT `title`,`name`,`email` FROM `nnoble_301`.`resume`";
+//		this.resultSet = this.excuteQuery(query);
+//		this.displaySQLTable(this.resultSet, 10,25);
+		
+	}
+	
+	
+}

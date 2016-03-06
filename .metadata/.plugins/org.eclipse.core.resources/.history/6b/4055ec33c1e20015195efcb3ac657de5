@@ -1,0 +1,28 @@
+package nrnoble;
+
+import java.util.InputMismatchException;
+
+public class Main
+{
+
+	public Main()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args)
+	{
+
+		boolean test = false;
+		while (test == false)
+		{
+			System.out.println(test);
+			
+		}
+		
+		
+		
+
+	}
+
+}

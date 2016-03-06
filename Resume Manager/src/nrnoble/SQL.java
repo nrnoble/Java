@@ -69,21 +69,24 @@ public class SQL extends JCDB
 	 */
 	public ResultSet excuteQuery (String query) throws SQLException, CommunicationsException, ClassNotFoundException
 	{
-		this.currentQuery = query;
-		Statement stmt = this.sqlConnection.createStatement();
+
 		
 		// handle connection timeout
 		try
 		{	
+			this.currentQuery = query;
+			Statement stmt = this.sqlConnection.createStatement();
 			return stmt.executeQuery(query);	
 		} 
-		catch (CommunicationsException e)
+		catch (Exception e)
 		{
 			disconnectionHandler(e);
 		}
 		
 		
-		return stmt.executeQuery(query);	
+		this.currentQuery = query;
+		Statement stmt = this.sqlConnection.createStatement();
+		return stmt.executeQuery(query);		
 		
 	}
 	
@@ -102,20 +105,23 @@ public class SQL extends JCDB
 	{
 		//create a statement and query
 	
-		this.currentQuery = insertQuery;
-		Statement stmt = this.sqlConnection.createStatement();
+
 		
 		// handle connection timeout
 		try
 		{
+			this.currentQuery = insertQuery;
+			Statement stmt = this.sqlConnection.createStatement();
 			return stmt.executeUpdate(insertQuery);
 			
-		} catch (CommunicationsException e)
+		} catch (Exception e)
 		{
 			disconnectionHandler(e);
 		}	
 
 		// try again if disconnected
+		this.currentQuery = insertQuery;
+		Statement stmt = this.sqlConnection.createStatement();
 		return stmt.executeUpdate(insertQuery);
 
 	}
@@ -131,21 +137,24 @@ public class SQL extends JCDB
 	 */
 	public int update(String insertUpdate) throws SQLException, CommunicationsException, ClassNotFoundException
 	{
-		//create a statement and query
-		this.currentQuery = insertUpdate;
-		Statement stmt = this.sqlConnection.createStatement();
+
 		
 		// handle connection timeout
 		try
 		{
+			//create a statement and query
+			this.currentQuery = insertUpdate;
+			Statement stmt = this.sqlConnection.createStatement();
 			return stmt.executeUpdate(insertUpdate);
 			
-		} catch (CommunicationsException e)
+		} catch (Exception e)
 		{
 			disconnectionHandler(e);
 		}	
 
 		// try again if disconnected
+		this.currentQuery = insertUpdate;
+		Statement stmt = this.sqlConnection.createStatement();
 		return stmt.executeUpdate(insertUpdate);	
 	}
 	
@@ -290,7 +299,7 @@ public class SQL extends JCDB
 		}
 
 		
-		private void disconnectionHandler(CommunicationsException e) throws ClassNotFoundException, SQLException
+		private void disconnectionHandler(Exception e) throws ClassNotFoundException, SQLException
 		{
 			System.out.println("Connection has timed out...");
 			System.out.println("reconnecting");

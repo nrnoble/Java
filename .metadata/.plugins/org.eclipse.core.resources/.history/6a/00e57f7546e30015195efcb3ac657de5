@@ -1,0 +1,30 @@
+package nrnoble;
+
+import java.sql.Date;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.sql.ResultSet;
+
+
+
+
+/**
+ * Test driver for SaleDataLayer class
+ * @author Neal Noble 
+ *
+ */
+public class TestDriver extends ResumeManager
+{
+
+	public TestDriver() throws ClassNotFoundException, SQLException
+	{
+		super();	
+	}
+
+	
+	
+	
+	
+	
+}

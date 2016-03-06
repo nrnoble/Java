@@ -1,0 +1,11 @@
+package nrnoble;
+
+public class SQLInjectionEscaper
+{
+
+	public SQLInjectionEscaper()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,38 @@
+package nrnoble;
+
+import java.sql.SQLException;
+
+public class ResumeManager extends SQL
+{
+
+	public ResumeManager() throws ClassNotFoundException, SQLException
+	{
+		super("nnoble_301", "J$p1ter2", "nnoble.greenrivertech.net");	
+	}
+	
+	public void addResume(String _title, String _name, String _profile, String _email)
+	{
+		// INSERT INTO `nnoble_301`.`resume` (`title`, `name`, `profile`, `email`) 
+		// VALUES ('Java Developer', 'Cal Orson', 'Java Developer LEVEL 2', 'corson@email.com');
+		
+		String query = "INSERT INTO `nnoble_301`.`resume` (`title`, `name`, `profile`, `email`)  VALUES ('" + _title + "', " + _name + ", " + _profile + ", " + _email + ";
+		
+		
+		
+	}
+
+	public void addResume_experience(String _job, String _resume_title, String _year_started, String _year_ended, String _position)
+	{
+		// INSERT INTO `nnoble_301`.`resume_experience` (`job`, `resume_title`, `year_started`, `year_ended`, `position`) 
+		// VALUES ('XYZ', 'Java Developer', '2011-03-03', '2016-07-08', 'Java Level II');
+		
+		String query = "INSERT INTO `nnoble_301`.`resume_experience` (`" + _job  + ", " + _resume_title + ", " + _year_started + ", " + _year_ended + ", " + _position";
+		
+	}
+	
+	public void addResume_skill(String skill, String resume_title, String description)
+	{
+		// INSERT INTO `nnoble_301`.`Skill` (`Skill`, `Description`) VALUES ('SQL', 'SQL')
+		String query = "INSERT INTO `nnoble_301`.`Skill` (`" + Skill + ", " + description  ", " + description + ";
+	}
+}

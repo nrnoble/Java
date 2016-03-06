@@ -1,0 +1,11 @@
+package nrnoble;
+
+public class ConnectionSettings
+{
+
+	public ConnectionSettings()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

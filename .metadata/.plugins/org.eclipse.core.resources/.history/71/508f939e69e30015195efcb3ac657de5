@@ -1,0 +1,24 @@
+package nrnoble;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.mysql.jdbc.CommunicationsException;
+
+public class TestData extends SQL
+{
+
+	public TestData(String _user, String _password, String _host) throws ClassNotFoundException, SQLException
+	{
+		super(_user, _password, _host);
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public ResultSet getUsers() throws CommunicationsException, ClassNotFoundException, SQLException
+	{
+		String query = "SELECT 'first_name', 'last_name', 'email' FROM";
+		return this.excuteQuery(query);
+	}
+
+}

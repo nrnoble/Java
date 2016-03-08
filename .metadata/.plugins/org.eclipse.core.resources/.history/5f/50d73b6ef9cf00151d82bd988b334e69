@@ -1,6 +1,0 @@
-package nrnoble;
-
-public enum ExceptionMsg
-{
-
-}

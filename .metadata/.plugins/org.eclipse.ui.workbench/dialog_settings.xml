@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="WorkbenchPreferenceDialogSettings">
-		<item value="335" key="DIALOG_X_ORIGIN"/>
-		<item value="116" key="DIALOG_Y_ORIGIN"/>
+		<item value="342" key="DIALOG_X_ORIGIN"/>
+		<item value="119" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
 		<item value="767" key="dialogHeight"/>
@@ -49,15 +49,26 @@
 		<item value="true" key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID"/>
 		<item value="true" key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID"/>
 		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="E:\OneDrive\Documents\Green River\IT301\Week9\Assignment - ResumeManager (Neal Noble)-7.zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\Week9\Assignment - ResumeManager (Neal Noble)-6.zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\Week9\Assignment - ResumeManager (Neal Noble)-5.zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\Week9\Assignment - ResumeManager (Neal Noble)-4.zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\Week9\Assignment - ResumeManager (Neal Noble)-3.zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\Week9\Assignment - ResumeManager (Neal Noble)-2.zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\Week9\Assignment - ResumeManager (Neal Noble).zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\week8\Exercises -JDBC Data Layer2 (Neal Noble).zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\week8\Exercises -JDBC Data Layer (Neal Noble).zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\week8\Exercises - JDBC Connections and Inserts4 (Neal Noble).zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\week8\Exercises - JDBC Connections and Inserts3 (Neal Noble).zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\week8\Exercises - JDBC Connections and Inserts2 (Neal Noble).zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\week8\Exercises - JDBC Connections and Inserts (Neal Noble).zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\Week 4\Assignment Exceptions2-Neal Noble.zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\Week 4\Custom Exceptions5-Neal Noble.zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\BlackJack with JavaDocs2-(Neal Noble).zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\Week 4\Custom Exceptions4-Neal Noble.zip"/>
+			<item value="E:\OneDrive\Documents\Green River\IT301\Week 4\Custom Exceptions3-Neal Noble.zip"/>
 			<item value="E:\OneDrive\Documents\Green River\IT301\Week 4\Custom Exceptions2-Neal Noble.zip"/>
 			<item value="E:\OneDrive\Documents\Green River\IT301\Week 4\Custom Exceptions-Neal Noble.zip"/>
-			<item value="E:\OneDrive\Documents\Green River\IT301\Week 4\Throwing Exceptions (Perspective B)-Neal Noble.zip"/>
-			<item value="E:\OneDrive\Documents\Green River\IT301\Week 4\Throwing Exceptions (Perspective A)-Neal Noble.zip"/>
-			<item value="E:\OneDrive\Documents\Green River\IT301\BlackJack with JavaDocs-(Neal Noble).zip"/>
-			<item value="E:\OneDrive\Documents\Green River\IT301\Bit Masking in Java-(Neal Noble).zip"/>
-			<item value="E:\OneDrive\Documents\Green River\IT301\Bit Masking-(Neal Noble).zip"/>
-			<item value="E:\Data\Java_Workspace\HW1-Neal Noble.zip"/>
-			<item value="HW1.zip"/>
 		</list>
 	</section>
 </section>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item value="JavaSE-1.8" key="org.eclipse.jdt.ui.last.selected.execution.enviroment"/>
+	<item value="false" key="delegateUpdating"/>
 	<item value="2" key="org.eclipse.jdt.ui.last.selected.jre.kind2"/>
 	<section name="SelfEncapsulateFieldWizard">
 		<item value="false" key="GenerateJavadoc"/>
@@ -43,7 +44,7 @@
 	<section name="javadoc">
 		<item value="protected" key="access"/>
 		<item value="false" key="noindex"/>
-		<item value="E:\Data\Github\Java\Java_Workspace\Assignment - Exceptions\javadoc.xml" key="antpath"/>
+		<item value="E:\Data\Github\Java\Java_Workspace\Resume Manager\javadoc.xml" key="antpath"/>
 		<item value="true" key="nodeprecatedlist"/>
 		<item value="true" key="use"/>
 		<item value="true" key="author"/>
@@ -57,7 +58,7 @@
 		<item value="true" key="splitindex"/>
 		<item value="true" key="fromStandard"/>
 		<item value="false" key="notree"/>
-		<item value="E:\Data\Github\Java\Java_Workspace\Assignment - Exceptions\doc" key="destdir"/>
+		<item value="E:\Data\Github\Java\Java_Workspace\Resume Manager\doc" key="destdir"/>
 		<item value="false" key="openinbrowser"/>
 		<section name="projects">
 			<section name="Display Image">
@@ -68,6 +69,11 @@
 			<section name="Throwing Exceptions (Perspective B, Q1-Q3 )">
 				<item value="E:\Data\Github\Java\Java_Workspace\Throwing Exceptions (Perspective B, Q1-Q3 )\javadoc.xml" key="antpath"/>
 				<item value="E:\Data\Github\Java\Java_Workspace\Throwing Exceptions (Perspective B, Q1-Q3 )\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Resume Manager">
+				<item value="E:\Data\Github\Java\Java_Workspace\Resume Manager\javadoc.xml" key="antpath"/>
+				<item value="E:\Data\Github\Java\Java_Workspace\Resume Manager\doc" key="destdir"/>
 				<item value="" key="href"/>
 			</section>
 			<section name="SubImages">
@@ -115,6 +121,11 @@
 				<item value="E:\Data\Github\Java\Java_Workspace\Throwing Exceptions (Perspective B, Q4 only)\doc" key="destdir"/>
 				<item value="" key="href"/>
 			</section>
+			<section name="HelloWorld">
+				<item value="E:\Data\Github\Java\Java_Workspace\HelloWorld\javadoc.xml" key="antpath"/>
+				<item value="E:\Data\Github\Java\Java_Workspace\HelloWorld\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
 			<section name="Throwing Exceptions (Perspective A)">
 				<item value="E:\Data\Github\Java\Java_Workspace\Throwing Exceptions (Perspective A)\javadoc.xml" key="antpath"/>
 				<item value="E:\Data\Github\Java\Java_Workspace\Throwing Exceptions (Perspective A)\doc" key="destdir"/>
@@ -145,7 +156,24 @@
 				<item value="E:\Data\Github\Java\Java_Workspace\String Test\doc" key="destdir"/>
 				<item value="" key="href"/>
 			</section>
+			<section name="Exercises – JDBC Data layer">
+				<item value="E:\Data\Github\Java\Java_Workspace\Exercises – JDBC Data layer\javadoc.xml" key="antpath"/>
+				<item value="E:\Data\Github\Java\Java_Workspace\Exercises – JDBC Data layer\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Exercises - JDBC Connections and Inserts">
+				<item value="E:\Data\Github\Java\Java_Workspace\Exercises - JDBC Connections and Inserts\javadoc.xml" key="antpath"/>
+				<item value="E:\Data\Github\Java\Java_Workspace\Exercises - JDBC Connections and Inserts\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
 		</section>
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.preferences.EditTemplateDialog_dialogBounds">
+		<item value="611" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="331" key="DIALOG_HEIGHT"/>
+		<item value="269" key="DIALOG_X_ORIGIN"/>
+		<item value="458" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="RenameInformationPopup">
 	</section>
@@ -172,6 +200,8 @@
 		</section>
 	</section>
 	<section name="completion_proposal_size">
+		<item value="560" key="size.y"/>
+		<item value="605" key="size.x"/>
 	</section>
 	<section name="AddGetterSetterDialog">
 		<item value="false" key="SortOrdering"/>
@@ -217,7 +247,7 @@
 	</section>
 	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
 		<item value="528" key="DIALOG_WIDTH"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="696" key="DIALOG_HEIGHT"/>
 		<item value="704" key="DIALOG_X_ORIGIN"/>
 		<item value="69" key="DIALOG_Y_ORIGIN"/>
@@ -258,6 +288,6 @@
 		<item value="false" key="create_package_info_java"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item value="3" key="pageIndex"/>
+		<item value="2" key="pageIndex"/>
 	</section>
 </section>

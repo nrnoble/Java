@@ -7,15 +7,12 @@ import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.mysql.jdbc.CommunicationsException;
-
 
 
 /**
  * Object that encapulates the SQL functions for this assignment
  * @author Neal Noble
- *
  */
 public class SQL extends JCDB
 {
@@ -56,27 +53,38 @@ public class SQL extends JCDB
 		this.user = _user;
 		this.password = _password;
 		this.host = _host;
-		//this.dbConnection = jcdb.getConnection();
+	
 	}
+
+	
+	/**
+	 * Use an existing connection
+	 * @param connection connection to a DB
+	 */
+	public SQL (Connection connection)
+	{
+		super (connection);
+	}
+	
 
 	/**
 	 * Displays query results
-	 * @param query to be displayed
+	 * @param _query to be displayed
 	 * @throws SQLException exception
 	 * @return resultSet of query;
 	 * @throws CommunicationsException Exception
 	 * @throws ClassNotFoundException Exception
 	 */
-	public ResultSet excuteQuery (String query) throws SQLException, CommunicationsException, ClassNotFoundException
+	public ResultSet excuteQuery (String _query) throws SQLException, CommunicationsException, ClassNotFoundException
 	{
 
 		
 		// handle connection timeout
 		try
 		{	
-			this.currentQuery = query;
+			this.currentQuery = _query;
 			Statement stmt = this.sqlConnection.createStatement();
-			return stmt.executeQuery(query);	
+			return stmt.executeQuery(_query);	
 		} 
 		catch (Exception e)
 		{
@@ -84,35 +92,29 @@ public class SQL extends JCDB
 		}
 		
 		
-		this.currentQuery = query;
+		this.currentQuery = _query;
 		Statement stmt = this.sqlConnection.createStatement();
-		return stmt.executeQuery(query);		
+		return stmt.executeQuery(_query);		
 		
 	}
 	
 
-	
-	
 	/**
 	 * 
-	 * @param insertQuery is a SQL insert string
+	 * @param _insertQuery is a SQL insert string
 	 * @return either (1) the row count for SQL Data Manipulation Language (DML) statements or (2) 0 for SQL statements that return nothing
 	 * @throws SQLException Exception Exception
 	 * @throws ClassNotFoundException Exception
 	 * @throws CommunicationsException Exception
 	 */
-	public int insert(String insertQuery) throws SQLException, CommunicationsException, ClassNotFoundException
+	public int insert(String _insertQuery) throws SQLException, CommunicationsException, ClassNotFoundException
 	{
-		//create a statement and query
-	
-
-		
 		// handle connection timeout
 		try
 		{
-			this.currentQuery = insertQuery;
+			this.currentQuery = _insertQuery;
 			Statement stmt = this.sqlConnection.createStatement();
-			return stmt.executeUpdate(insertQuery);
+			return stmt.executeUpdate(_insertQuery);
 			
 		} catch (Exception e)
 		{
@@ -120,32 +122,30 @@ public class SQL extends JCDB
 		}	
 
 		// try again if disconnected
-		this.currentQuery = insertQuery;
+		this.currentQuery = _insertQuery;
 		Statement stmt = this.sqlConnection.createStatement();
-		return stmt.executeUpdate(insertQuery);
+		return stmt.executeUpdate(_insertQuery);
 
 	}
 	
 	
 	/**
 	 * 
-	 * @param insertUpdate is a SQL update string
+	 * @param _insertUpdate is a SQL update string
 	 * @return either (1) the row count for SQL Data Manipulation Language (DML) statements or (2) 0 for SQL statements that return nothing
 	 * @throws SQLException Exception Exception
 	 * @throws ClassNotFoundException Exception
 	 * @throws CommunicationsException Exception
 	 */
-	public int update(String insertUpdate) throws SQLException, CommunicationsException, ClassNotFoundException
+	public int update(String _insertUpdate) throws SQLException, CommunicationsException, ClassNotFoundException
 	{
-
-		
 		// handle connection timeout
 		try
 		{
 			//create a statement and query
-			this.currentQuery = insertUpdate;
+			this.currentQuery = _insertUpdate;
 			Statement stmt = this.sqlConnection.createStatement();
-			return stmt.executeUpdate(insertUpdate);
+			return stmt.executeUpdate(_insertUpdate);
 			
 		} catch (Exception e)
 		{
@@ -153,26 +153,24 @@ public class SQL extends JCDB
 		}	
 
 		// try again if disconnected
-		this.currentQuery = insertUpdate;
+		this.currentQuery = _insertUpdate;
 		Statement stmt = this.sqlConnection.createStatement();
-		return stmt.executeUpdate(insertUpdate);	
+		return stmt.executeUpdate(_insertUpdate);	
 	}
 	
 	
-	
-	
 	/**
-	 * 
+	 * Get the current connection to the Database
 	 * @return SQL Connection object
 	 */
 	public Connection getConnection()
 	{
-		
 		return this.sqlConnection;
 	}
 	
+	
 	/**
-	 * Close the database connection
+	 * Close current database connection
 	 * @return the last executed query
 	 */
 	public String getCurrentQuery()
@@ -182,53 +180,62 @@ public class SQL extends JCDB
 	
 
 	/**
-	 * 
-	 * @param resultSet data set from query
+	 * Dynamically calculates the width of each column by finding longest string from all the rows returned
+	 * @param _resultSet data set from query
 	 * @param _minColumnWidth Min colomn width
 	 * @param _maxColumnWidth Max colomn width
 	 * @return List array of width for each column in dataset.
 	 * @throws SQLException Exception
 	 */
-	private  List<Integer> getColumnWidth(ResultSet resultSet, int _minColumnWidth, int _maxColumnWidth) throws SQLException
+	private  List<Integer> getColumns_Width(ResultSet _resultSet, int _minColumnWidth, int _maxColumnWidth) throws SQLException
 	{
 		
 		// Get column data which will be used to dynamically create 
 		// the table headers
-		ResultSetMetaData metadata = resultSet.getMetaData();
+		ResultSetMetaData metadata = _resultSet.getMetaData();
 		
 		// display column headings from metadata
 		int columCount = metadata.getColumnCount();
 
 		
-		// calculate column wideth by finding the widest item in each row
-		List<Integer> colwidth = new ArrayList<Integer>();
+		// calculate column width by finding the widest item in each row
+		List<Integer> columns_width = new ArrayList<Integer>();
 		
+		//Loop through all the columns in the resultset
 		for (int idx=1; idx <= columCount; idx++)
-		{
-			resultSet.beforeFirst();
+		{		
+			_resultSet.beforeFirst();
+			
+			// initialize the width to the column heading with some padding added 
 			int widest = metadata.getColumnName(idx).length()+ 5;
+		
 			if (_minColumnWidth > widest)
 			{
 				widest = _minColumnWidth;
 			}
-			while(resultSet.next() != false)
+			
+			// interate through all the rows setting the width to column to
+			// the row with the most data.
+			while(_resultSet.next() != false)
 			{
-				String row = resultSet.getString(idx);
+				String row = _resultSet.getString(idx);
 				if (row.length() + 5 > widest)
 				{
 					widest = row.length()+ 5;
 				}						
 			}
 			
+			// Reset the column width if the width is larger
+			// than max width.
 			if (widest > _maxColumnWidth)
 			{
 				widest = _maxColumnWidth;
 			}
 			
-			colwidth.add(widest);
+			columns_width.add(widest);
 		}
 		
-		return colwidth;
+		return columns_width;
 	}
 	
 	
@@ -239,76 +246,78 @@ public class SQL extends JCDB
 	 * @param _maxColumnWidth max width of each columns in table
 	 * @throws SQLException Exception
 	 */
-		public void displaySQLTable(ResultSet _resultSet, int _minColumnWidth, int _maxColumnWidth) throws SQLException
+	 public void displaySQLTable(ResultSet _resultSet, int _minColumnWidth, int _maxColumnWidth) throws SQLException
+	 {
+		// Get table data which will be used to dynamically create 
+		// the table headers
+		ResultSetMetaData metadata = _resultSet.getMetaData();
+		
+		// get the number of columns in the table
+		int columCount = metadata.getColumnCount();
+
+
+		// calculate column widith by finding the widest item in each row
+		List<Integer> colwidth = getColumns_Width(_resultSet, _minColumnWidth,_maxColumnWidth);
+		
+					
+		_resultSet.first();
+		for (int idx=1; idx <= columCount; idx++)
 		{
-			// Get table data which will be used to dynamically create 
-			// the table headers
-			ResultSetMetaData metadata = _resultSet.getMetaData();
-			
-			// get the number of columns in the table
-			int columCount = metadata.getColumnCount();
+			_minColumnWidth =  colwidth.get(idx-1);
+			String ColumnName = Utils.padRight(metadata.getColumnName(idx),_minColumnWidth);
+			System.out.print(ColumnName.toUpperCase());
+		}
+		
+		System.out.println();
+		
+		// underscore the column headings to make display
+		// look better.
+		for (int idx=1; idx <= columCount; idx++)
+		{
 
-
-			// calculate column widith by finding the widest item in each row
-			List<Integer> colwidth = getColumnWidth(_resultSet, _minColumnWidth,_maxColumnWidth);
+			_minColumnWidth =  colwidth.get(idx-1);
+			//String ColumnName = Utils.padRight(Utils.underScore(metadata.getColumnName(idx)),_minColumnWidth);
+			String underscoreColumnHeading = Utils.padRight(Utils.underScoreColumnHeading(Utils.underScoreColumnHeading(_minColumnWidth-2)),_minColumnWidth);
 			
-						
-			_resultSet.first();
+			System.out.print(underscoreColumnHeading);
+		}
+		
+		System.out.println();
+		
+		// display rows of data with each column properly padded so that
+		// all the columns line up correctly
+		_resultSet.beforeFirst();
+		while(_resultSet.next() != false)
+		{
+			// display a single row of data
 			for (int idx=1; idx <= columCount; idx++)
 			{
 				_minColumnWidth =  colwidth.get(idx-1);
-				String ColumnName = Utils.padRight(metadata.getColumnName(idx),_minColumnWidth);
-				System.out.print(ColumnName);
+				String row =_resultSet.getString(idx);
+				String columData = Utils.padRight(row,_minColumnWidth);
+				System.out.print(columData);
 			}
-			
-			System.out.println();
-			
-			// underscore the column headings to make display
-			// look better.
-			for (int idx=1; idx <= columCount; idx++)
-			{
-
-				_minColumnWidth =  colwidth.get(idx-1);
-				//String ColumnName = Utils.padRight(Utils.underScore(metadata.getColumnName(idx)),_minColumnWidth);
-				String ColumnName = Utils.padRight(Utils.underScore(Utils.underScoreColumnHeading(_minColumnWidth-2)),_minColumnWidth);
-				
-				System.out.print(ColumnName);
-			}
-			
-			System.out.println();
-			
-			// display rows of data with each column properly padded so that
-			// all the columns line up correctly
-			_resultSet.beforeFirst();
-			while(_resultSet.next() != false)
-			{
-				// display a single row of data
-				for (int idx=1; idx <= columCount; idx++)
-				{
-					_minColumnWidth =  colwidth.get(idx-1);
-					String row =_resultSet.getString(idx);
-					String columData = Utils.padRight(row,_minColumnWidth);
-					System.out.print(columData);
-				}
-				System.out.println("");
-				
-			}
-			
-			
+			System.out.println("");
 			
 		}
+		
+		
+		
+	 }
 
 		
-		private void disconnectionHandler(Exception e) throws ClassNotFoundException, SQLException
-		{
-			System.out.println("Connection has timed out...");
-			System.out.println("reconnecting");
-			this.establishConnection();
-			System.out.println("re-established connection to database");
-		}
-		
-	 public static String escapeString(String x, boolean escapeDoubleQuotes) 
-	    {
+	 private void disconnectionHandler(Exception e) throws ClassNotFoundException, SQLException
+	 {
+		System.out.println("Connection has timed out...");
+		System.out.println("reconnecting");
+		this.establishConnection();
+		System.out.println("re-established connection to database");
+	 }
+	
+	 
+	 @SuppressWarnings("unused")
+	 private static String escapeString(String x, boolean escapeDoubleQuotes) 
+	 {
 	        StringBuilder sBuilder = new StringBuilder(x.length() * 11/10);
 
 	        int stringLength = x.length();
@@ -373,7 +382,7 @@ public class SQL extends JCDB
 	        }
 
 	        return sBuilder.toString();
-	    }
+	  }
 		
 		
 }

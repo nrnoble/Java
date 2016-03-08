@@ -1,8 +1,0 @@
-package nrnoble;
-
-import java.util.ArrayList;
-
-public class Origin extends ArrayList<E>
-{
-
-}

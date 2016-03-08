@@ -1,8 +1,0 @@
-package Exceptions;
-
-import NullArgumentException;
-
-public class CustomNullException extends NullArgumentException
-{
-
-}

@@ -14,12 +14,17 @@ import com.mysql.jdbc.CommunicationsException;
 public class ResumeManager extends SQL
 {
 
+	@SuppressWarnings("unused")
+	private ResultSet testData_Users = null;
 	
 	public ResumeManager(String _userName, String _password, String _sqlServerName) throws ClassNotFoundException, SQLException
 	{
-		super(_userName, _password, _sqlServerName); 
+		super(_userName, _password, _sqlServerName);
 		
+		TestData testData = new TestData (this.getConnection());
+		this.testData_Users =  testData.getUsers();
 	}
+	
 	
 	/**
 	 * Adds Resume to database
@@ -32,16 +37,11 @@ public class ResumeManager extends SQL
 	 */
 	public void addResume(String _title, String _name, String _profile, String _email) throws SQLException, ClassNotFoundException
 	{
-		// INSERT INTO `nnoble_301`.`resume` (`title`, `name`, `profile`, `email`) 
-		// VALUES ('Java Developer', 'Cal Orson', 'Java Developer LEVEL 2', 'corson@email.com');
-		
-		String query = "INSERT INTO `nnoble_301`.`resume` (`title`, `name`, `profile`, `email`)  VALUES ('" + _title + "', '" + _name + "', '" + _profile + "', '" + _email + "');";
-		
-		//System.out.println(query);
+		String query = "INSERT INTO `" + ConnectionSettings.RESUMEDB + "`.`" + ConnectionSettings.RESUME_TABLE +"` (`title`, `name`, `profile`, `email`)  VALUES ('" + _title + "', '" + _name + "', '" + _profile + "', '" + _email + "');";
 		this.insert(query);
-
 	}
 
+	
 	/**
 	 * Gets primary key value for the last record in the Resume table 
 	 * @return primary key value
@@ -50,11 +50,10 @@ public class ResumeManager extends SQL
 	 */
 	public int getLastPkey() throws SQLException, ClassNotFoundException
 	{
-		String query = "SELECT `pkey` FROM `nnoble_301`.`resume` ORDER BY pkey DESC LIMIT 1;";
+		String query = "SELECT `pkey` FROM `" + ConnectionSettings.RESUMEDB + "`.`" + ConnectionSettings.RESUME_TABLE +"` ORDER BY pkey DESC LIMIT 1;";
 		ResultSet resultset = this.excuteQuery(query);
 		resultset.next();
 		int lastPkey = Integer.parseInt(resultset.getString(1));
-		//System.out.println("lastPkey: " + lastPkey);
 		return  lastPkey;
 	}
 	
@@ -72,11 +71,7 @@ public class ResumeManager extends SQL
 	 */
 	public void addResume_experience(int _fkey, String _job, String _resume_title, String _year_started, String _year_ended, String _position) throws SQLException, ClassNotFoundException
 	{
-		// INSERT INTO `nnoble_301`.`resume_experience` (`job`, `resume_title`, `year_started`, `year_ended`, `position`) 
-		// VALUES ('XYZ', 'Java Developer', '2011-03-03', '2016-07-08', 'Java Level II');
-		//Integer.parseInt("1234");
-		String query = "INSERT INTO `nnoble_301`.`resume_experience` (`fkey`,`job`, `resume_title`, `year_started`, `year_ended`, `position`) VALUES ('" + _fkey + "', '" + _job  + "', '" + _resume_title + "', '" + _year_started + "', '" + _year_ended + "', '" + _position + "');";
-		//System.out.println(query);
+		String query = "INSERT INTO `" + ConnectionSettings.RESUMEDB + "`.`" + ConnectionSettings.RESUME_EXPERIENCE_TABLE +"` (`fkey`,`job`, `resume_title`, `year_started`, `year_ended`, `position`) VALUES ('" + _fkey + "', '" + _job  + "', '" + _resume_title + "', '" + _year_started + "', '" + _year_ended + "', '" + _position + "');";
 		this.insert(query);
 	}
 	
@@ -92,12 +87,10 @@ public class ResumeManager extends SQL
 	 */
 	public void addResume_skill(int _fkey, String _skill, String _resume_title, String _description) throws SQLException, ClassNotFoundException
 	{
-
-		//INSERT INTO `nnoble_301`.`resume_skill` (`skill`, `resume_title`, `description`) VALUES ('SQL', 'resume Title', 'skill Description');
-		String query = "INSERT INTO `nnoble_301`.`resume_skill` (`fkey`,`skill`, `resume_title`, `description`) VALUES ('" + _fkey + "', '" + _skill + "', '" + _resume_title + "', '" + _description + "')";
-		System.out.println(query);
+		String query = "INSERT INTO `" + ConnectionSettings.RESUMEDB + "`.`" + ConnectionSettings.RESUME_SKILL_TABLE +"` (`fkey`,`skill`, `resume_title`, `description`) VALUES ('" + _fkey + "', '" + _skill + "', '" + _resume_title + "', '" + _description + "')";
 		this.insert(query);
 	}
+	
 	
 	/**
 	 * Displays in the console all resumes in the Resume Table
@@ -107,49 +100,38 @@ public class ResumeManager extends SQL
 	 */
 	public void showResumeList() throws SQLException, CommunicationsException, ClassNotFoundException
 	{
-	
-		String query  = "SELECT `pkey`,`title`,`name`,`email` FROM `nnoble_301`.`resume`";
+		String query  = "SELECT `pkey`,`title`,`name`,`email` FROM `" + ConnectionSettings.RESUMEDB + "`.`" + ConnectionSettings.RESUME_TABLE +"`";
 		ResultSet resultset = this.excuteQuery(query);
-		this.displaySQLTable(resultset, 10,25);
-		
+		this.displaySQLTable(resultset, 10,25);	
 	}
+	
 	
 	/**
 	 * Displays in the console the details of one resume 
-	 * @param pkey primay key of the resume
+	 * @param _pkey primay key of the resume
 	 * @throws SQLException Exception
 	 * @throws ClassNotFoundException Exception
 	 */
-	public void showResumeDetails(int pkey) throws SQLException, ClassNotFoundException
+	public void showResumeDetails(int _pkey) throws SQLException, ClassNotFoundException
 	{
-		
-		 String query  = "SELECT `title`, `name`, `email`, `profile` FROM `nnoble_301`.`resume` WHERE `pkey` = '" + pkey +"'";
-		 query  = "SELECT `title`, `name`, `email`, `profile` FROM `nnoble_301`.`resume` WHERE `pkey` = '" + pkey +"'";
-		 //System.out.println(query);
+		 String query  = "SELECT `title`, `name`, `email`, `profile` FROM `" + ConnectionSettings.RESUMEDB + "`.`" + ConnectionSettings.RESUME_TABLE+"` WHERE `pkey` = '" + _pkey +"'";
 		 ResultSet resultSet = this.excuteQuery(query);
-		 this.displaySQLTable(resultSet, 7, 35);
+		 this.displaySQLTable(resultSet, 7, 50);
 		 System.out.println();
 		 
-		  // Execute a query that gets the skills for a specific resume and display it in the console
-		  query  = "SELECT `skill`, `description` FROM `nnoble_301`.`resume_skill` WHERE `fkey` = '" + pkey +"'";
-		 //System.out.println(query);
-		  resultSet = this.excuteQuery(query);
-		 this.displaySQLTable(resultSet, 7, 20);
+		 // Execute a query that gets the skills for a specific resume and display it in the console
+		 query  = "SELECT `skill`, `description` FROM `" + ConnectionSettings.RESUMEDB + "`.`" + ConnectionSettings.RESUME_SKILL_TABLE +"` WHERE `fkey` = '" + _pkey +"'";
+		 resultSet = this.excuteQuery(query);
+		 this.displaySQLTable(resultSet, 7, 50);
 		 System.out.println();
 		
-		// Execute a query that gets the jop experience for a specific resume and display it in the console
-		  query  = "SELECT  `position`, `year_started`, `year_ended` FROM `nnoble_301`.`resume_experience` WHERE `fkey` = '" + pkey +"'";
-		 //System.out.println(query);
-		  resultSet = this.excuteQuery(query);
-		 this.displaySQLTable(resultSet, 7, 20);
+		 // Execute a query that gets the jop experience for a specific resume and display it in the console
+		 query  = "SELECT  `job`, `position`, `year_started`, `year_ended` FROM `" + ConnectionSettings.RESUMEDB + "`.`" + ConnectionSettings.RESUME_EXPERIENCE_TABLE +"` WHERE `fkey` = '" + _pkey +"'";
+		 resultSet = this.excuteQuery(query);
+		 this.displaySQLTable(resultSet, 7, 50);
 		 System.out.println();
 		 System.out.println();
-		 
-
-		 
-
 		
 	}
-	
-	
+
 }

@@ -41,6 +41,12 @@ public class JCDB
 		
 		
 	}
+	
+	public JCDB (Connection connection)
+	{
+		this.sqlConnection = connection;
+	}
+	
 
 	public void establishConnection() throws  SQLException, ClassNotFoundException
 	{

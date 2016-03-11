@@ -256,7 +256,7 @@ public class SQL extends JCDB
 		int columCount = metadata.getColumnCount();
 
 
-		// calculate column widith by finding the widest item in each row
+		// calculate column width by finding the widest item in each row
 		List<Integer> colwidth = getColumns_Width(_resultSet, _minColumnWidth,_maxColumnWidth);
 		
 					

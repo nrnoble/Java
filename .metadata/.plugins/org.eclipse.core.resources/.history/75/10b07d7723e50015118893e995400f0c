@@ -1,0 +1,34 @@
+package nrnoble;
+
+import java.awt.List;
+
+public class Main
+{
+
+	public Main()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args)
+	{
+		info();
+		java.util.List<Integer> primeNumbers = Utils.findPrimes(1, 1000);
+		
+		Utils.columnDisplay(4, primeNumbers);
+
+	}
+	
+	
+	public static void info()
+	{
+		System.out.println("Neal Noble");
+		System.out.println("IT 301");
+		System.out.println("Assignment: Threads");
+		System.out.println("March 2016");
+		System.out.println("");
+		System.out.println();
+	}
+
+
+}

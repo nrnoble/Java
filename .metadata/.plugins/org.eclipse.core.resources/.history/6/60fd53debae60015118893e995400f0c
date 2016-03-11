@@ -1,0 +1,141 @@
+package nrnoble;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PrimesData 
+{
+	
+	private static List<PrimesData.Prime> primesList = new ArrayList<PrimesData.Prime>();
+	//private static List<Integer> primesList_2 = new ArrayList<Integer>();
+	
+	public PrimesData()
+	{
+		
+	}
+	
+	
+	/**
+	 * removed all data from prime number list
+	 */
+	public static void ClearPrimeList()
+	{
+		primesList.removeAll(primesList)
+	}
+	
+	public synchronized static void add(int _threadID, int _prime)
+	{
+		PrimesData.Prime primeNumber =  new PrimesData().new Prime(_threadID, _prime);		
+		primesList.add(primeNumber);
+	}
+	
+	
+	public synchronized static List<PrimesData.Prime> getPrimes()
+	{
+		return primesList;
+	}
+	
+	public static int primeNumberCounter()
+	{
+		
+		return primesList.size();
+		
+	}
+	
+	public static void sort()
+	{
+		primesList.sort(null);
+	}
+	
+	
+	public class Prime
+	{
+		private int thread;
+		private int primeNumber;
+		
+		
+		public Prime(int _thread, int _prime)
+		{
+			this.thread = _thread;
+			this.primeNumber = _prime;
+		}
+		
+		public int getThreadID()
+		{
+			return this.thread;
+		}
+		
+		
+		public int getPrimeNumber()
+		{
+			return this.primeNumber;
+		}
+		
+		
+		
+	}
+	
+	
+	public static void displayPrimesFound(boolean _sorted)
+	{
+		
+		int columnCount = 0;
+		if (_sorted == true)
+		{
+			
+			
+			for (int threadID = 1; threadID <= Config.NUMBEROFTHREADS; threadID++)
+			{
+				System.out.println("Primes found by thread-" + threadID);
+				System.out.println("--------------------------");
+
+				for (int idx = 0; idx < primesList.size(); idx++)
+				{
+					
+					PrimesData.Prime prime = primesList.get(idx);
+					if (prime.getThreadID() == threadID)
+					{
+						String thread_ID = String.format ("%02d",prime.getThreadID());
+						int primeNum =  prime.getPrimeNumber();
+						String sPrime = String.format(Config.DIGITS, primeNum);
+						System.out.print(sPrime + "  ");
+						
+						if (++columnCount >= Config.NUM_OF_COLUMNS)
+						{
+							columnCount = 0;
+					
+							System.out.println("...");
+							
+						}
+					}
+				}
+				columnCount = 0;
+				System.out.println("...");
+				System.out.println();
+			}
+			
+			return;
+		}
+		
+		
+		
+		columnCount = 0;
+		for (PrimesData.Prime primeNumber : primesList)
+		{
+			String threadID = String.format ("%02d",primeNumber.getThreadID());
+			int prime =  primeNumber.getPrimeNumber();
+			String sPrime = String.format(Config.DIGITS, prime);
+			System.out.print("T" + threadID + ":" + sPrime + "  ");
+			
+			if (++columnCount >= Config.NUM_OF_COLUMNS)
+			{
+				columnCount = 0;
+		
+				System.out.println("...");
+				
+			}
+		}
+	}
+	
+	
+}

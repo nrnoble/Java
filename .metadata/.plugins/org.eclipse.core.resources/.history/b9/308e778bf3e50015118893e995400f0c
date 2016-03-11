@@ -1,0 +1,13 @@
+package nrnoble;
+
+import java.util.ArrayList;
+
+public class PrimesData extends ArrayList<Thread>
+{
+
+	public PrimesData()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

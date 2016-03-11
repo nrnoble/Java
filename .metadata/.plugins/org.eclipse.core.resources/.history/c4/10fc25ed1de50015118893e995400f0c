@@ -1,0 +1,29 @@
+package nrnoble;
+
+public class Main
+{
+
+	public Main()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args)
+	{
+	
+
+	}
+	
+	
+	public static void info()
+	{
+		System.out.println("Neal Noble");
+		System.out.println("IT 301");
+		System.out.println("Assignment: Threads);
+		System.out.println("March 2016");
+		System.out.println("");
+		System.out.println();
+	}
+
+
+}

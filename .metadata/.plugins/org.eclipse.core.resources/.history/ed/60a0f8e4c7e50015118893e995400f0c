@@ -1,0 +1,46 @@
+package nrnoble;
+import java.awt.List;
+
+public class Main
+{
+
+	public Main()
+	{
+		// Nothing to do here
+	}
+
+	/**
+	 * Start of this application
+	 * @param args
+	 */
+	public static void main(String[] args)
+	{
+		info();
+		
+		java.util.List<Integer> primeNumbers = 
+				Utils.findPrimes(Config.RANGE_START, 
+						         Config.RANGE_END);
+		
+		Utils.columnDisplay(Config.NUM_OF_COLUMNS, 
+							primeNumbers, 
+				            Config.LEFT_JUSTIFICATION);
+		
+		
+	}
+	
+	
+	/**
+	 * Assignment information
+	 */
+	public static void info()
+	{
+		System.out.println("Neal Noble");
+		System.out.println("IT 301");
+		System.out.println("Assignment: Threads");
+		System.out.println("March 2016");
+		System.out.println("");
+		System.out.println();
+	}
+
+
+}

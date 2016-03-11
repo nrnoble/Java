@@ -1,0 +1,180 @@
+package nrnoble;
+
+import java.sql.SQLException;
+import java.util.List;
+
+
+/**
+ * Helper class. Static method for console menus
+ * @author Neal Neal
+ * date February 2016
+ */
+public class Menu
+{
+
+	public Menu()
+	{
+		// nothing to to do here
+	}
+
+	
+	/**
+	 * Returns the first character from an input string
+	 * @param _prompt text displayed to the user.
+	 * @param _default value if only {return} is used
+	 * @return a single char value
+	 */
+	public static char myGetKeyHack(String _prompt, char _default)
+	{
+		String inputString = Console.getString(_prompt);
+		if (inputString.isEmpty())
+		{
+			return _default;
+		}
+		
+		return inputString.charAt(0);
+	}
+	
+	
+	/**
+	 * Get input string from user
+	 * @param _prompt Menu Prompt string
+	 * @return User input
+	 */
+	public static String consoleInput(String _prompt)
+	{
+		String inputString = "";
+		boolean valid = false;
+		while (valid == false)
+		{
+		    inputString = Console.getString(_prompt + ": ");
+			valid = Utils.validateInput(inputString);
+			
+		}
+		
+		
+		return inputString;
+	}
+	
+	
+	/**
+	 * Main menu for application
+	 * @return the selected menu item as char
+	 */
+	public static char applicationMenu()
+	{
+		char menuSelection = ' ';
+		while (menuSelection != '1' && 
+			   menuSelection != '2' &&
+			   menuSelection != '3' &&
+			   menuSelection != '4' &&
+			   menuSelection != '5' &&
+			   menuSelection != '6' &&
+			   menuSelection != '7' &&
+			   menuSelection != '8' &&
+			   menuSelection != '9')
+		{
+			 System.out.println("----------------------------");
+			System.out.println("1. Search for primes numbers");
+			System.out.println("2. Show sorted list of primes");
+			System.out.println("3. Change number of threads");
+			System.out.println("4. Change upper search limit");
+			System.out.println("5. Info");
+			System.out.println("6. Exit");
+		 	           System.out.println("----------------------------");
+			menuSelection = myGetKeyHack ("   Choice (default 1)", '1');
+			System.out.println();
+			System.out.println();
+		}	
+		return menuSelection;
+	}
+	
+	
+/**
+ *  main application loop. 
+ * @throws InterruptedException Exception
+ */
+	public static void mainMenu() throws InterruptedException 
+	{
+		// menu selection 
+		char selection 		= ' ';
+		int range_End = Config.RANGE_END;
+		int range_Start = Config.RANGE_START;
+
+		// Selecting Menu option #6 exits loop
+		while (selection != '6')
+		{
+			System.out.println("\r");
+			System.out.println(Config.APPLCATION_TITLE);
+			//Prompt user to selection a menu option
+			selection = nrnoble.Menu.applicationMenu();
+			
+			/* ----------------------------- */
+			// ****   Menu Option #3   *****
+			/* ----------------------------- */
+			if(selection =='5')
+			{
+				Main.info();
+				continue;
+			}
+			
+			/* ----------------------------- */
+			// ****   Menu Option #1   *****
+			/* ----------------------------- */
+			if (selection == '1')
+			{
+				PrimesData.ClearPrimeList();
+				System.out.println();
+				System.out.println(" Search for Primes Numbers");
+				System.out.println("--------------------");
+								
+				List <Utils.Points> rangeList = Utils.RangeList(Config.RANGE_END, Config.NUMBEROFTHREADS);
+
+				SynchronizedPrimeWorker threads = new SynchronizedPrimeWorker();
+				
+				int threadID = 1;
+				for(Utils.Points points : rangeList)
+				{
+					PrimeWorker primeworker = new PrimeWorker(points.getStart(),
+																points.getEnd(),
+																threadID++);
+					Thread thread = new Thread(primeworker);
+					threads.add(thread);
+				}
+				
+				
+				threads.startThreads();
+				
+				// wait untill all threads have exited.
+				threads.waits();
+				
+				int threadCount = 0;
+				
+				for(Utils.Points  points : rangeList)
+				{
+					System.out.println("ThreadID-"+ ++threadCount + " " + String.format(Config.DIGITS, points.getStart()) + " .. " + String.format(Config.DIGITS, points.getEnd()));
+				}
+				System.out.println();
+				System.out.println("Prime Number Count: " + PrimesData.primeNumberCounter()+ " found between " + Config.RANGE_START + "..." + Config.RANGE_END); 
+				System.out.println("-------------------------------------------------\r");
+				PrimesData.displayPrimesFound(false);
+				
+				
+							
+			}
+			
+			
+			/* ----------------------------- */
+			// ****   Menu Option #2   *****
+			/* ----------------------------- */
+			
+			if (selection == '2')
+			{
+				
+
+			}
+		}
+		
+	}
+	
+}

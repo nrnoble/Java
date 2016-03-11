@@ -1,0 +1,13 @@
+package nrnoble;
+
+import java.util.ArrayList;
+
+public class Theads extends ArrayList<E>
+{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+}

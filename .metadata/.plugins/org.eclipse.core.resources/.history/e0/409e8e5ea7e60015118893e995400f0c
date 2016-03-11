@@ -1,0 +1,18 @@
+package nrnoble;
+
+public class Config
+{
+	public static final int RANGE_START = 1;
+	public static final int RANGE_END = 1000000;
+	public static final int COLUMN_WIDTH = 4;
+	public static final int NUM_OF_COLUMNS = 10;
+	public static final int LEFT_JUSTIFICATION = 5;
+	public static final int NUMBEROFTHREADS = 5;
+	public static final int NUMBEROFDIGITS = (int) Math.log10(RANGE_END) + 1;
+	public static final String DIGITS = "%0" + NUMBEROFDIGITS +"d";
+	public Config()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

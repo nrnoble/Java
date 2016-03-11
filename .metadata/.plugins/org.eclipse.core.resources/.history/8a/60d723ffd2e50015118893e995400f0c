@@ -1,0 +1,56 @@
+package nrnoble;
+
+import java.util.List;
+
+/**
+ * Worker Class that is used to find prime numbers
+ * @author Neal Noble
+ *
+ */
+public class PrimeWorker implements Runnable
+{
+	int rangeStart = 0;
+	int rangeEnd = 0;
+	int threadID = 0;
+	Boolean isAlive = null;
+	private List<Integer> primeNumbers = null;
+	
+	public PrimeWorker(int _rangeStart, int _rangeEnd, int _threadID)
+	{
+		this.threadID = _threadID;
+		this.rangeStart = rangeEnd;
+		this.rangeEnd = _rangeEnd;
+	}
+
+	/**
+	 * Start of thread
+	 */
+	@Override
+	public void run()
+	{
+		this.primeNumbers = Utils.findPrimes(this.rangeStart, this.rangeEnd);
+		System.out.println("Thread '" + this.threadID + "' has finished");
+		this.isAlive = false;
+	}
+
+	/**
+	 * @return List Array of prime numbers 
+	 */
+	public List<Integer> getPrimes()
+	{
+		this.run();
+		return this.primeNumbers;
+	}
+	
+	/**
+	 * Check if thread is still active
+	 * @return
+	 */
+	public boolean getIsAlive()
+	{
+		return this.isAlive;
+	}
+	
+}
+
+	

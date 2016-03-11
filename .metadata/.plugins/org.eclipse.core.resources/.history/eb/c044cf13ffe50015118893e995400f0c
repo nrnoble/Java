@@ -1,0 +1,32 @@
+package nrnoble;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PrimesData 
+{
+	
+	private static List<String> primesList = new ArrayList<Integer>();
+	private static List<Integer> primesList_2 = new ArrayList<Integer>();
+	
+	public PrimesData()
+	{
+		// TODO Auto-generated constructor stub
+	}
+	
+	public synchronized static void add(int thhreadID, int _prime)
+	{
+		String prime = String.format("%04D", _prime);
+		primesList.add("T" + primesList_2 + " " + prime );
+		primesList_2.add(_prime);
+	}
+	
+	
+	public synchronized static List<Integer> getPrimes()
+	{
+		return primesList;
+	}
+	
+	
+
+}

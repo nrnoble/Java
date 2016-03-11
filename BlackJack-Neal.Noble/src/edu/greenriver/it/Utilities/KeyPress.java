@@ -6,8 +6,6 @@ import java.io.InputStreamReader;
 import javax.swing.JFrame;
 import javax.swing.JRootPane;
 
-import edu.greenriver.it.console.Console;
-
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 

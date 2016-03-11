@@ -1,0 +1,51 @@
+package nrnoble;
+
+import java.util.ArrayList;
+
+public class Threads extends ArrayList<Thread>
+{
+	private static final long serialVersionUID = 1L;
+	
+	public Threads()
+	{
+		
+	}
+	
+	public void startThreads()
+	{
+		for (Thread thread : this)
+		{
+			thread.start();
+		}
+	}
+	
+	public void waits() throws InterruptedException
+	{
+//		int threadCount = aliveThreads();
+//		while (threadCount > 0)
+//		{
+//			Thread.sleep(25);
+//			//System.out.print(threadCount + ".");
+//		}
+
+	}
+	
+	public int aliveThreads()
+	{
+		
+		int alive_Threads = 0;
+		for (Thread thread : this)
+		{
+			if (thread.isAlive() == true)
+			{
+				alive_Threads++;
+			}
+		}
+		
+		return alive_Threads;
+	}
+	
+	
+	
+	
+}

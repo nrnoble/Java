@@ -1,0 +1,21 @@
+package nrnoble;
+
+import java.util.ArrayList;
+
+public class Threads extends ArrayList<Thread>
+{
+	private static final long serialVersionUID = 1L;
+	
+	public Threads(Thread thread)
+	{
+		
+	}
+	
+	public void startThreads()
+	{
+		for (Thread thread : this)
+		{
+			thread.start();
+		}
+	}
+}

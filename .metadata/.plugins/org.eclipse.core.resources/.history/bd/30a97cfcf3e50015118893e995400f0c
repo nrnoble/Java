@@ -1,0 +1,19 @@
+package nrnoble;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PrimesData 
+{
+	
+	public static List<Integer> primesList = new ArrayList<Integer>();
+	public static List<Integer> primesList_2 = new ArrayList<Integer>();
+	
+	public PrimesData()
+	{
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+}

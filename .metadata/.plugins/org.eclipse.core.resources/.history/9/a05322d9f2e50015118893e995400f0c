@@ -1,0 +1,11 @@
+package nrnoble;
+
+public class PrimesData
+{
+
+	public PrimesData()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

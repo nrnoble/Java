@@ -1,0 +1,49 @@
+package nrnoble;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PrimesData 
+{
+	
+	private static List<String> primesList = new ArrayList<String>();
+	private static List<Integer> primesList_2 = new ArrayList<Integer>();
+	
+	public PrimesData()
+	{
+		// TODO Auto-generated constructor stub
+	}
+	
+	public synchronized static void add(int thhreadID, int _prime)
+	{
+		String prime = String.format("%04d", _prime);
+		primesList.add("T" + thhreadID + ":" + prime);
+		
+		// Keeping track of just the prime
+		primesList_2.add(_prime);
+	}
+	
+	
+	public synchronized static List<String> getPrimes()
+	{
+		return primesList;
+	}
+	
+	
+	public static void displayPrimesFound()
+	{
+		int columnCount = 0;
+		for (String i : primesList)
+		{
+			System.out.print(i + "  ");
+			if (++columnCount >= 12)
+			{
+				columnCount = 0;
+				System.out.println("...");
+				
+			}
+		}
+	}
+	
+	
+}

@@ -1,0 +1,21 @@
+package nrnoble;
+
+import java.util.List;
+
+public class PrimeWorker implements Runnable
+{
+
+	List<Integer> primeNumbers = null;
+	public PrimeWorker()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void run()
+	{
+		primeNumbers = Utils.findPrimes(Config.RANGE_START, Config.RANGE_END);
+
+	}
+
+}

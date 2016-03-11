@@ -1,0 +1,105 @@
+package nrnoble;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PrimesData 
+{
+	
+	private static List<PrimesData.Prime> primesList = new ArrayList<PrimesData.Prime>();
+	//private static List<Integer> primesList_2 = new ArrayList<Integer>();
+	
+	public PrimesData()
+	{
+		
+	}
+	
+	public synchronized static void add(int _threadID, int _prime)
+	{
+		
+		PrimesData.Prime primeNumber =  new PrimesData().new Prime(_threadID, _prime);
+		
+		
+		primesList.add(primeNumber);
+		//String prime = String.format("%04d", _prime);
+		//primesList.add("T" + _threadID + ":" + prime);
+		
+		// Keeping track of just the prime
+		//primesList_2.add(_prime);
+	}
+	
+	
+	public synchronized static List<PrimesData.Prime> getPrimes()
+	{
+		return primesList;
+	}
+	
+	public static int primeNumberCounter()
+	{
+		
+		
+		return primesList.size();
+		
+	}
+	
+	public static void sort()
+	{
+		primesList.sort(null);
+	}
+	
+	
+	public class Prime
+	{
+		private int thread;
+		private int primeNumber;
+		
+		
+		public Prime(int _thread, int _prime)
+		{
+			this.thread = _thread;
+			this.primeNumber = _prime;
+		}
+		
+		public int getThreadID()
+		{
+			return this.thread;
+		}
+		
+		
+		public int getPrimeNumber()
+		{
+			return this.primeNumber;
+		}
+		
+		
+		
+	}
+	
+	
+	public static void displayPrimesFound(boolean _sorted)
+	{
+		
+		if (_sorted == true)
+		{
+			
+		}
+		
+		int columnCount = 0;
+		for (PrimesData.Prime primeNumber : primesList)
+		{
+			int threadID = primeNumber.getThreadID();
+			int prime =  primeNumber.getPrimeNumber();
+			System.out.print("T" + threadID + ":" + prime + "  ");
+			
+			if (++columnCount >= 12)
+			{
+				columnCount = 0;
+		
+				System.out.println("...");
+				
+			}
+		}
+	}
+	
+	
+}

@@ -1,0 +1,18 @@
+package nrnoble;
+
+public class Threads extends ThreadGroup
+{
+
+	public Threads(String name)
+	{
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Threads(ThreadGroup parent, String name)
+	{
+		super(parent, name);
+		// TODO Auto-generated constructor stub
+	}
+
+}

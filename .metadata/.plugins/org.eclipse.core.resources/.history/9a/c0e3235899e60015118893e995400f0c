@@ -1,0 +1,11 @@
+package nrnoble;
+
+public class SynchronizedPrimeWorker extends Thread
+{
+
+	public SynchronizedPrimeWorker()
+	{
+		// Nothing to do here
+	}
+
+}

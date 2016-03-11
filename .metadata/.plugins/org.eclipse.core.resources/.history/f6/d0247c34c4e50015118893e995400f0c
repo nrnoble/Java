@@ -1,0 +1,18 @@
+package nrnoble;
+
+public class PrimeWorker implements Runnable
+{
+
+	public PrimeWorker()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void run()
+	{
+		Utils.findPrimes(Config.RANGE_START, Config.RANGE_END);
+
+	}
+
+}
